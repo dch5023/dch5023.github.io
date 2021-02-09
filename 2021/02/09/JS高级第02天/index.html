@@ -257,27 +257,27 @@
 <li><p>定义构造函数时, 公共的方法定义在原型对象上, 这样可以被所有创建出来的实例直接继承</p>
 </li>
 </ul>
-<p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_10-53-21.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_10-53-21.png" srcset="/img/loading.gif"></p>
 <h3 id="4-对象的原型-proto"><a href="#4-对象的原型-proto" class="headerlink" title="4.对象的原型  proto"></a>4.对象的原型  <strong>proto</strong></h3><h4 id="4-1对象的原型"><a href="#4-1对象的原型" class="headerlink" title="4.1对象的原型"></a>4.1对象的原型</h4><p>每个对象都默认有一个 <strong>proto</strong> 的属性, 它的值是一个对象, 默认指向创建这个对象的构造函数的原型</p>
 <h4 id="4-2对象原型的访问特点"><a href="#4-2对象原型的访问特点" class="headerlink" title="4.2对象原型的访问特点"></a>4.2对象原型的访问特点</h4><p>每个对象访问 <strong>proto</strong> 下的所有属性和方法，可以省略<strong>proto</strong></p>
 <h4 id="4-3对象上读取属性的顺序"><a href="#4-3对象上读取属性的顺序" class="headerlink" title="4.3对象上读取属性的顺序"></a>4.3对象上读取属性的顺序</h4><p>先从自身的属性上进行查找，如果没有再去 <strong>proto</strong> 属性指向的对象上去查找</p>
-<p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_11-19-46.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_11-19-46.png" srcset="/img/loading.gif"></p>
 <h3 id="5-constructor构造函数"><a href="#5-constructor构造函数" class="headerlink" title="5.constructor构造函数"></a>5.constructor构造函数</h3><ul>
 <li>每个构造函数的原型上默认都有一个constructor属性，指向构造函数</li>
 <li>作用：constructor帮助我们判断这个对象是由谁创建出来的</li>
 </ul>
-<p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_11-27-48.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_11-27-48.png" srcset="/img/loading.gif"></p>
 <h3 id="6-构造函数、对象原型、实例的三角关系"><a href="#6-构造函数、对象原型、实例的三角关系" class="headerlink" title="6.构造函数、对象原型、实例的三角关系"></a>6.构造函数、对象原型、实例的三角关系</h3><ul>
 <li>实例对象是由构造函数创建的</li>
 <li>构造函数有个默认的属性prototype 指向这个构造函数的原型对象</li>
 <li>实例对象有个默认的属性 __proto杠杠 指向创建对象时构造函数的原型对象prototype</li>
 <li>构造函数的原型对象有个默认的属性constructor 指向构造函数本身</li>
 </ul>
-<p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\三角关系.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\三角关系.png" srcset="/img/loading.gif"></p>
 <h3 id="7-原型链"><a href="#7-原型链" class="headerlink" title="7.原型链"></a>7.原型链</h3><h5 id="7-1原型链的理解（面试常问）"><a href="#7-1原型链的理解（面试常问）" class="headerlink" title="7.1原型链的理解（面试常问）"></a>7.1原型链的理解（面试常问）</h5><p>每个实例对象（ object ）都有一个私有属性（称之为 __proto杠杠 ）指向创建它的构造函数的原型对象（prototype ）。</p>
 <p> 该原型对象也有一个自己的原型对象( __proto杠杠 ) ，层层向上直到一个对象的原型对象为 null。</p>
 <p> 注意: 根据定义，null 没有原型，并作为这个原型链中的最后一个环节 是原型链的终点</p>
-<p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_11-43-59.png" srcset="/img/loading.gif"></p>
+<p><img src="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/Users\ytt5023\Desktop\笔记\JS高级\第2天\imgs\Snipaste_2021-01-04_11-43-59.png" srcset="/img/loading.gif"></p>
 <h5 id="7-2对象访问属性时遵从原型链的顺序"><a href="#7-2对象访问属性时遵从原型链的顺序" class="headerlink" title="7.2对象访问属性时遵从原型链的顺序"></a>7.2对象访问属性时遵从原型链的顺序</h5><ul>
 <li><p>当访问一个对象的属性时，首先从这个对象自身进行查找</p>
 </li>
