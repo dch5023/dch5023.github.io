@@ -1,0 +1,658 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>JS 基础第一天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JS 基础第一天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 00:00" pubdate>
+        2021年2月9日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS 基础第一天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="JS-基础第一天"><a href="#JS-基础第一天" class="headerlink" title="JS 基础第一天"></a>JS 基础第一天</h1><h2 id="一、JavaScript认识"><a href="#一、JavaScript认识" class="headerlink" title="一、JavaScript认识"></a>一、JavaScript认识</h2><h3 id="1、什么是JS？"><a href="#1、什么是JS？" class="headerlink" title="1、什么是JS？"></a>1、什么是JS？</h3><p>全称JavaScript，是一种运行在客户端的脚本语言。</p>
+<p>脚本语言：不需要编译，运行过程中由 js 解释器( js 引擎）逐行来进行解释并执行。</p>
+<h3 id="4、JS组成"><a href="#4、JS组成" class="headerlink" title="4、JS组成"></a>4、JS组成</h3><p><img src="images%5C1%5C%E5%9B%BE%E7%89%8711.png" srcset="/img/loading.gif" alt="图片11"></p>
+<h2 id="二、JS注释"><a href="#二、JS注释" class="headerlink" title="二、JS注释"></a>二、JS注释</h2><h3 id="1、单行注释"><a href="#1、单行注释" class="headerlink" title="1、单行注释"></a>1、单行注释</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//单行文本注释</span><br></code></pre></td></tr></table></figure>
+<p>默认快捷键：ctrl +/</p>
+<h3 id="2、多行文本注释"><a href="#2、多行文本注释" class="headerlink" title="2、多行文本注释"></a>2、多行文本注释</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/*多行文本注释*/</span><br></code></pre></td></tr></table></figure>
+<p>默认快捷键：Alt+shift+a</p>
+<h2 id="三、JavaScript输入输出语句"><a href="#三、JavaScript输入输出语句" class="headerlink" title="三、JavaScript输入输出语句"></a>三、JavaScript输入输出语句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">浏览器输入语句：prompt(<span class="hljs-string">&#x27;123&#x27;</span>);<br>浏览器输出语句：alert(<span class="hljs-string">&#x27;&#x27;</span>);<br>控制台输出语句：<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+<th>归属</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>alert(msg)</td>
+<td>浏览器弹出警示框</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>console.log(msg)</td>
+<td>浏览器控制台打印输出信息</td>
+<td>浏览器</td>
+</tr>
+<tr>
+<td>prompt(info)</td>
+<td>浏览器弹出输入框，用户可以输入</td>
+<td>浏览器</td>
+</tr>
+</tbody></table>
+<ul>
+<li>注意：alert() 主要用来显示消息给用户，console.log() 用来给程序员自己看运行时的消息。</li>
+</ul>
+<h2 id="四、变量的概念"><a href="#四、变量的概念" class="headerlink" title="四、变量的概念"></a>四、变量的概念</h2><h3 id="1、什么是变量"><a href="#1、什么是变量" class="headerlink" title="1、什么是变量"></a>1、什么是变量</h3><p>白话：变量就是一个装东西的盒子。</p>
+<h3 id="2、变量本质"><a href="#2、变量本质" class="headerlink" title="2、变量本质"></a>2、变量本质</h3><p>​    本质：<strong>变量是程序在内存中申请的一块用来存放数据的空间。</strong></p>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8714.png" srcset="/img/loading.gif" alt="图片14"></p>
+<h2 id="五、变量的使用"><a href="#五、变量的使用" class="headerlink" title="五、变量的使用"></a>五、变量的使用</h2><h3 id="1、变量声明"><a href="#1、变量声明" class="headerlink" title="1、变量声明"></a>1、变量声明</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//  声明变量  </span><br><span class="hljs-keyword">var</span> age; <span class="hljs-comment">//  声明一个 名称为age 的变量     </span><br></code></pre></td></tr></table></figure>
+<h3 id="2、赋值"><a href="#2、赋值" class="headerlink" title="2、赋值"></a>2、赋值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">age = <span class="hljs-number">10</span>; <span class="hljs-comment">// 给 age  这个变量赋值为 10          </span><br></code></pre></td></tr></table></figure>
+<h3 id="3、变量初始化"><a href="#3、变量初始化" class="headerlink" title="3、变量初始化"></a>3、变量初始化</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> age = <span class="hljs-number">10</span>; <span class="hljs-comment">// 声明变量同时赋值为 18</span><br><span class="hljs-comment">// 声明一个变量并赋值， 我们称之为变量的初始化。</span><br></code></pre></td></tr></table></figure>
+<h3 id="4、变量语法拓展"><a href="#4、变量语法拓展" class="headerlink" title="4、变量语法拓展"></a>4、变量语法拓展</h3><ul>
+<li><p>更新变量</p>
+<p>​        一个变量被重新复赋值后，它原有的值就会被覆盖，变量值将以最后一次赋的值为准。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> age = <span class="hljs-number">18</span>;<br><br>age = <span class="hljs-number">81</span>;   <span class="hljs-comment">// 最后的结果就是81因为18 被覆盖掉了          </span><br></code></pre></td></tr></table></figure></li>
+<li><p>同时声明多个变量</p>
+<p>​        同时声明多个变量时，只需要写一个 var， 多个变量名之间使用英文逗号隔开。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> age = <span class="hljs-number">10</span>,  name = <span class="hljs-string">&#x27;zs&#x27;</span>, sex = <span class="hljs-number">2</span>;       <br></code></pre></td></tr></table></figure></li>
+<li><p>声明变量特殊情况</p>
+<table>
+<thead>
+<tr>
+<th>情况</th>
+<th>说明</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>var  age ; console.log (age);</td>
+<td>只声明 不赋值</td>
+<td>undefined</td>
+</tr>
+<tr>
+<td>console.log(age)</td>
+<td>不声明 不赋值  直接使用</td>
+<td>报错</td>
+</tr>
+<tr>
+<td>age   = 10; console.log (age);</td>
+<td>不声明   只赋值</td>
+<td>10</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="5、命名规范"><a href="#5、命名规范" class="headerlink" title="5、命名规范"></a>5、命名规范</h3><ul>
+<li>组成：字母：a-z、A-Z、数字0-9、下划线(_)、美元符号（$）;</li>
+<li>区分大小写；</li>
+<li>不能以数字开头；</li>
+<li>不能使用关键字和保留字；</li>
+<li>尽量使变量命名一亩了然（用英文）；</li>
+<li>驼峰命名法（首字母小写，后面的首字母大写：myFirstName）；</li>
+</ul>
+<h2 id="六、数据类型"><a href="#六、数据类型" class="headerlink" title="六、数据类型"></a>六、数据类型</h2><h3 id="1、为什么需要数据类型"><a href="#1、为什么需要数据类型" class="headerlink" title="1、为什么需要数据类型"></a>1、为什么需要数据类型</h3><p>在计算机中，不同的数据所需占用的存储空间是不同的，为了便于把数据分成所需内存大小不同的数据，充分利用存储空间，于是定义了不同的数据类型。</p>
+<h3 id="2、数据类型分类"><a href="#2、数据类型分类" class="headerlink" title="2、数据类型分类"></a>2、数据类型分类</h3><ul>
+<li>简单数据类型 （Number,String,Boolean,Undefined,Null）</li>
+</ul>
+<ul>
+<li>复杂数据类型 （object)    </li>
+</ul>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8716.png" srcset="/img/loading.gif" alt="图片16"></p>
+<h4 id="1、数字类型（number）"><a href="#1、数字类型（number）" class="headerlink" title="1、数字类型（number）"></a>1、数字类型（number）</h4><ul>
+<li><p>分为整数型和浮点型（小数）</p>
+</li>
+<li><p>数字型进制</p>
+<p>最常见的进制有二进制、八进制、十进制、十六进制。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"> <span class="hljs-comment">// 1.八进制数字序列范围：0~7</span><br><span class="hljs-keyword">var</span> num1 = <span class="hljs-number">07</span>;   <span class="hljs-comment">// 对应十进制的7</span><br><span class="hljs-keyword">var</span> num2 = <span class="hljs-number">019</span>;  <span class="hljs-comment">// 对应十进制的19</span><br><span class="hljs-keyword">var</span> num3 = <span class="hljs-number">08</span>;   <span class="hljs-comment">// 对应十进制的8</span><br> <span class="hljs-comment">// 2.十六进制数字序列范围：0~9以及A~F</span><br><span class="hljs-keyword">var</span> num = <span class="hljs-number">0xA</span>;   <br></code></pre></td></tr></table></figure>
+<p>现阶段我们只需要记住，在JS中八进制前面加0，十六进制前面加 0x  </p>
+</li>
+<li><p>数字型范围</p>
+<p>JavaScript中数值的最大和最小值</p>
+<ul>
+<li>最大值：Number.MAX_VALUE，这个值为： 1.7976931348623157e+308</li>
+<li>最小值：Number.MIN_VALUE，这个值为：5e-32</li>
+</ul>
+</li>
+<li><p>数字型特殊数值</p>
+<ul>
+<li>Infinity ，代表无穷大，大于任何数值</li>
+<li>-Infinity ，代表无穷小，小于任何数值</li>
+<li>NaN ，Not a number，代表一个非数值</li>
+</ul>
+</li>
+<li><p>isNaN</p>
+<p>用来判断一个变量是否为非数字的类型，返回 true 或者 false</p>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8717.png" srcset="/img/loading.gif" alt="图片17"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> usrAge = <span class="hljs-number">21</span>;<br> <span class="hljs-keyword">var</span> isOk = <span class="hljs-built_in">isNaN</span>(userAge);<br>   <span class="hljs-built_in">console</span>.log(isNum);          <span class="hljs-comment">// false ，21 不是一个非数字</span><br> <span class="hljs-keyword">var</span> usrName = <span class="hljs-string">&quot;andy&quot;</span>;<br>   <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">isNaN</span>(userName));<span class="hljs-comment">// true ，&quot;andy&quot;是一个非数字</span><br></code></pre></td></tr></table></figure>
+<h4 id="2、字符串类型（String）"><a href="#2、字符串类型（String）" class="headerlink" title="2、字符串类型（String）"></a>2、字符串类型（String）</h4></li>
+</ul>
+<p>字符串型可以是引号中的任意文本，其语法为 双引号 “” 和 单引号’’</p>
+<ul>
+<li><p>字符串引号嵌套</p>
+<p>​        JS 可以用单引号嵌套双引号 ，或者用双引号嵌套单引号 (外双内单，外单内双)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> strMsg = <span class="hljs-string">&#x27;我是&quot;高帅富&quot;程序猿&#x27;</span>;   <span class="hljs-comment">// 可以用&#x27;&#x27;包含&quot;&quot;</span><br><span class="hljs-keyword">var</span> strMsg2 = <span class="hljs-string">&quot;我是&#x27;高帅富&#x27;程序猿&quot;</span>;  <span class="hljs-comment">// 也可以用&quot;&quot; 包含&#x27;&#x27;</span><br><span class="hljs-comment">//  常见错误</span><br><span class="hljs-keyword">var</span> badQuotes = <span class="hljs-string">&#x27;What on earth?&quot;; // 报错，不能 单双引号搭配</span><br></code></pre></td></tr></table></figure></li>
+<li><p>字符串转义符</p>
+<p>转义符都是 \ 开头的，常用的转义符及其说明如下：</p>
+<table>
+<thead>
+<tr>
+<th>转义符</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\n</td>
+<td>换行符，n   是   newline   的意思</td>
+</tr>
+<tr>
+<td>\ \</td>
+<td>斜杠   \</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>‘   单引号</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>”双引号</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>tab  缩进</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>空格 ，b   是   blank  的意思</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ul>
+<li><p>字符串长度</p>
+<p>通过默认函数length（）测量；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> strMsg = <span class="hljs-string">&quot;我是帅气多金的程序猿！&quot;</span>;<br>  alert(strMsg.length); <span class="hljs-comment">// 显示 11</span><br></code></pre></td></tr></table></figure></li>
+<li><p>字符串拼接</p>
+<ul>
+<li><p>多个字符串之间可以使用 + 进行拼接，其拼接方式为 字符串 + 任何类型 = 拼接之后的新字符串</p>
+</li>
+<li><p>拼接前会把与字符串相加的任何类型转成字符串，再拼接成一个新的字符串</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//1.1 字符串 &quot;相加&quot;</span><br>alert(<span class="hljs-string">&#x27;hello&#x27;</span> + <span class="hljs-string">&#x27; &#x27;</span> + <span class="hljs-string">&#x27;world&#x27;</span>); <span class="hljs-comment">// hello world</span><br><span class="hljs-comment">//1.2 数值字符串 &quot;相加&quot;</span><br>alert(<span class="hljs-string">&#x27;100&#x27;</span> + <span class="hljs-string">&#x27;100&#x27;</span>); <span class="hljs-comment">// 100100</span><br><span class="hljs-comment">//1.3 数值字符串 + 数值</span><br>alert(<span class="hljs-string">&#x27;11&#x27;</span> + <span class="hljs-number">12</span>);     <span class="hljs-comment">// 1112 </span><br></code></pre></td></tr></table></figure>
+<p><strong><em>+ 号总结口诀：数值相加 ，字符相连</em></strong></p>
+</li>
+</ul>
+</li>
+<li><p>字符串拼接加强</p>
+<ul>
+<li>经常会将字符串和变量来拼接，变量可以很方便地修改里面的值</li>
+<li><strong>变量是不能添加引号的</strong>，因为加引号的变量会变成字符串</li>
+<li>如果变量两侧都有字符串拼接，口诀“引引加加 ”，删掉数字，变量写加中间</li>
+</ul>
+</li>
+</ul>
+<h4 id="3、布尔类型Boolean"><a href="#3、布尔类型Boolean" class="headerlink" title="3、布尔类型Boolean"></a>3、布尔类型Boolean</h4><p>​    布尔类型有两个值：true 和 false ，其中 true 表示真（对），而 false 表示假（错）。</p>
+<p>​    布尔型和数字型相加的时候， true 的值为 1 ，false 的值为 0。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">true</span> + <span class="hljs-number">1</span>);  <span class="hljs-comment">// 2</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">false</span> + <span class="hljs-number">1</span>); <span class="hljs-comment">// 1</span><br></code></pre></td></tr></table></figure>
+<h4 id="4、null和undefined"><a href="#4、null和undefined" class="headerlink" title="4、null和undefined"></a>4、null和undefined</h4><p>​    一个声明后没有被赋值的变量会有一个默认值undefined ( 如果进行相连或者相加时，注意结果）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> variable;<br><span class="hljs-built_in">console</span>.log(variable);           <span class="hljs-comment">// undefined</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;你好&#x27;</span> + variable);  <span class="hljs-comment">// 你好undefined</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">11</span> + variable);     <span class="hljs-comment">// NaN</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">true</span> + variable);   <span class="hljs-comment">//  NaN</span><br></code></pre></td></tr></table></figure>
+<p>​    一个声明变量给 null 值，里面存的值为空</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> vari = <span class="hljs-literal">null</span>;<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;你好&#x27;</span> + vari);  <span class="hljs-comment">// 你好null</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-number">11</span> + vari);     <span class="hljs-comment">// 11</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">true</span> + vari);   <span class="hljs-comment">//  1</span><br></code></pre></td></tr></table></figure>
+<h3 id="3、获取数据类型"><a href="#3、获取数据类型" class="headerlink" title="3、获取数据类型"></a>3、获取数据类型</h3><h4 id="1、获取数据类型"><a href="#1、获取数据类型" class="headerlink" title="1、获取数据类型"></a>1、获取数据类型</h4><p>typeof 可用来获取检测变量的数据类型</p>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8718.png" srcset="/img/loading.gif" alt="图片18"></p>
+<h4 id="2、数据类型转换"><a href="#2、数据类型转换" class="headerlink" title="2、数据类型转换"></a>2、数据类型转换</h4><ul>
+<li><p>字符串类型转换</p>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8719.png" srcset="/img/loading.gif" alt="图片19"></p>
+<ul>
+<li>toString() 和 String()  使用方式不一样。</li>
+<li>三种转换方式，<strong>更多第三种加号拼接字符串转换方式</strong>， 隐式转换。</li>
+</ul>
+</li>
+<li><p>数字类型转换</p>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8720.png" srcset="/img/loading.gif" alt="图片20"></p>
+<ul>
+<li>注意 <strong>parseInt</strong> 和 <strong>parseFloat</strong> 单词的大小写重点</li>
+<li>隐式转换是我们在进行算数运算的时候，JS 自动转换了数据类型</li>
+</ul>
+</li>
+<li><p>转换布尔型</p>
+<p><img src="images%5C1%5C%E5%9B%BE%E7%89%8721.png" srcset="/img/loading.gif" alt="图片21"></p>
+<ul>
+<li><strong>代表空、否定的值会被转换为 false  ，如 ‘’、0、NaN、null、undefined</strong>  </li>
+<li>其余值都会被转换为 true</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JS%E5%9F%BA%E7%A1%80/">JS基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC06%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS 高级第六天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC02%E5%A4%A9%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">JS 基础第二天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>JS 高级第六天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JS 高级第六天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 00:00" pubdate>
+        2021年2月9日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS 高级第六天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="ES6语法"><a href="#ES6语法" class="headerlink" title="ES6语法"></a>ES6语法</h1><h2 id="一、ES6相关概念"><a href="#一、ES6相关概念" class="headerlink" title="一、ES6相关概念"></a>一、ES6相关概念</h2><h3 id="1-什么是ES6"><a href="#1-什么是ES6" class="headerlink" title="1.什么是ES6"></a>1.什么是ES6</h3><p>ES 的全称是 ECMAScript , 它是由 ECMA 国际标准化组织,制定的一项脚本语言的标准化规范。</p>
+<h3 id="2-为什么使用ES6"><a href="#2-为什么使用ES6" class="headerlink" title="2.为什么使用ES6"></a>2.为什么使用ES6</h3><ul>
+<li>变量提升特性增加了程序运行时的不可预测性</li>
+<li>语法过于松散，实现相同的功能，不同的人可能会写出不同的代码</li>
+</ul>
+<h2 id="二、ES6新增语法"><a href="#二、ES6新增语法" class="headerlink" title="二、ES6新增语法"></a>二、ES6新增语法</h2><h3 id="1-let"><a href="#1-let" class="headerlink" title="1.let"></a>1.let</h3><h4 id="1-1-let的作用"><a href="#1-1-let的作用" class="headerlink" title="1.1 let的作用"></a>1.1 let的作用</h4><p>用来声明一个有块级作用域的变量，使用方法和 var 一样</p>
+<h4 id="1-2-let的特点"><a href="#1-2-let的特点" class="headerlink" title="1.2 let的特点"></a>1.2 let的特点</h4><ul>
+<li><p>只在声明时的块或子块中可用</p>
+</li>
+<li><p> 不存在变量提升，只能先声明再使用</p>
+</li>
+<li><p>存在“暂存死区”</p>
+<ul>
+<li><p>只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，</p>
+<p>   只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
+<p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第6天\imgs\Snipaste_2021-01-06_20-25-49.png" srcset="/img/loading.gif" alt="Snipaste_2021-01-06_20-25-49"></p>
+</li>
+</ul>
+</li>
+<li><p>同一作用域下不能重复声明同一变量</p>
+</li>
+<li><p>声明的变量不会挂载在 window 对象上 </p>
+</li>
+</ul>
+<h3 id="2-const"><a href="#2-const" class="headerlink" title="2.const"></a>2.const</h3><p>const声明的是一个常量，常量就是值（内存地址）不能变化的量</p>
+<h4 id="2-1-const的特点"><a href="#2-1-const的特点" class="headerlink" title="2.1 const的特点"></a>2.1 const的特点</h4><ul>
+<li>具有块级作用域</li>
+<li>声明常量时必须赋值</li>
+<li>赋值为简单数据类型时，不能直接修改值</li>
+<li>赋值为复杂数据类型时，只能修改对象里面的属性和方法   不能更改地址</li>
+</ul>
+<h4 id="2-2-var、let、const的区别"><a href="#2-2-var、let、const的区别" class="headerlink" title="2.2 var、let、const的区别"></a>2.2 var、let、const的区别</h4><p><img src="C:\Users\ytt5023\Desktop\笔记\JS高级\第6天\imgs\var&let&const区别.png" srcset="/img/loading.gif" alt="var&amp;let&amp;const区别"></p>
+<h4 id="2-3-变量的使用建议"><a href="#2-3-变量的使用建议" class="headerlink" title="2.3 变量的使用建议"></a>2.3 变量的使用建议</h4><ul>
+<li>优先使用 const 关键字声明固定不变的量</li>
+<li>使用 let 关键字声明变化的量</li>
+<li>兼容性考虑 或 基于 jQuery 的项目使用 var; 基于 vue 的项目 let/const</li>
+</ul>
+<h3 id="3-解构赋值"><a href="#3-解构赋值" class="headerlink" title="3.解构赋值"></a>3.解构赋值</h3><p>可以从数组或对象中，把值取出来，再赋值给对应的变量</p>
+<h4 id="3-1-对数组进行解构赋值"><a href="#3-1-对数组进行解构赋值" class="headerlink" title="3.1 对数组进行解构赋值"></a>3.1 对数组进行解构赋值</h4><h5 id="3-1-1-写法"><a href="#3-1-1-写法" class="headerlink" title="3.1.1 写法"></a>3.1.1 写法</h5><p>let [a, b, …] = 数组</p>
+<p>使用变量名和对应位置的数组元素一一匹配，匹配成功就把元素赋值给变量</p>
+<h5 id="3-1-2-使用注意"><a href="#3-1-2-使用注意" class="headerlink" title="3.1.2  使用注意"></a>3.1.2  使用注意</h5><ul>
+<li>没有解构成功的变量，值为 undefined</li>
+<li>变量的位置和数组中值的位置一一对应</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];<br><span class="hljs-keyword">let</span> [a, b, c, d] = arr; <br><span class="hljs-comment">//等号右边是我们的原数组  等号左边是声明的变量 变量名和对应位置的数组元素一一匹配</span><br><span class="hljs-built_in">console</span>.log(a, b, c, d); <span class="hljs-comment">//1 2 3 4</span><br><span class="hljs-comment">// 2. 没有解构成功的变量，值为 undefined</span><br><span class="hljs-keyword">const</span> arr2 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">let</span> [a1, b1, c1] = arr2;<br><span class="hljs-built_in">console</span>.log(a1, b1, c1); <span class="hljs-comment">//1 2 undefined</span><br><span class="hljs-comment">// 3. 不需要解构的元素可以使用 逗号 隔开</span><br><span class="hljs-keyword">const</span> arr3 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br><span class="hljs-keyword">let</span> [, , a2, b2] = arr3 <span class="hljs-comment">//如果我们只要第三和第四个数 前面两个用逗号隔开</span><br><span class="hljs-built_in">console</span>.log(a2, b2); <span class="hljs-comment">//3 4</span><br><span class="hljs-comment">// 4. 交换两个变量</span><br><span class="hljs-keyword">let</span> num1 = <span class="hljs-number">10</span>;<br><span class="hljs-keyword">let</span> num2 = <span class="hljs-number">20</span>;<br>[num1, num2] = [num2, num1];<br><span class="hljs-comment">//等号右边是原数组 也就是[10,20]  等号左边进行解构 </span><br><span class="hljs-built_in">console</span>.log(num1, num2); <span class="hljs-comment">//20  10</span><br></code></pre></td></tr></table></figure>
+
+
+<h4 id="3-2-对对象进行解构"><a href="#3-2-对对象进行解构" class="headerlink" title="3.2 对对象进行解构"></a>3.2 对对象进行解构</h4><h5 id="3-2-1-写法"><a href="#3-2-1-写法" class="headerlink" title="3.2.1 写法"></a>3.2.1 写法</h5><p>let {prop1, prop2, …} = 对象</p>
+<p>使用变量名和对象中的属性名进行一一匹配，匹配成功就把对象的属性值赋值给变量</p>
+<h5 id="3-2-2-使用注意"><a href="#3-2-2-使用注意" class="headerlink" title="3.2.2  使用注意"></a>3.2.2  使用注意</h5><ul>
+<li>没有解构成功的变量，值为 undefined</li>
+<li>变量的名称和属性名一一对应</li>
+<li>变量名的顺序和数量没有要求</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> obj = &#123;<br>           name: <span class="hljs-string">&#x27;张三&#x27;</span>,<br>           age: <span class="hljs-number">18</span>,<br>           height: <span class="hljs-string">&#x27;175cm&#x27;</span>,<br>           weight: <span class="hljs-string">&#x27;65kg&#x27;</span><br>            &#125;<br>            <span class="hljs-comment">// 和结构数组不一样的是  这里let的变量名 要和对象里的属性名一样 顺序没有要求</span><br>            <span class="hljs-comment">// let &#123;height,name&#125; = obj;</span><br>            <span class="hljs-comment">// console.log(name, height); //张三 175cm</span><br>        <span class="hljs-comment">// 没有解构成功的变量，值为 undefined</span><br>        <span class="hljs-keyword">let</span> &#123;age,foo&#125; = obj;<br>        <span class="hljs-built_in">console</span>.log(age, foo); <span class="hljs-comment">//18  undefined  因为obj里没有没有foo这个属性名</span><br></code></pre></td></tr></table></figure>
+<h5 id="3-2-3-对象解构赋值别名"><a href="#3-2-3-对象解构赋值别名" class="headerlink" title="3.2.3 对象解构赋值别名"></a>3.2.3 对象解构赋值别名</h5><p>: 变量名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"> <span class="hljs-comment">// 如何给解构后的变量起个别名 : 变量名</span><br>        <span class="hljs-keyword">let</span> obj = &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;张三&#x27;</span>,<span class="hljs-attr">age</span>: <span class="hljs-number">18</span>, <span class="hljs-attr">height</span>:<span class="hljs-string">&#x27;175cm&#x27;</span>,<span class="hljs-attr">weight</span>: <span class="hljs-string">&#x27;65kg&#x27;</span>&#125;;<br>        <span class="hljs-keyword">let</span> &#123;<span class="hljs-attr">name</span>: name2&#125; = obj;<br>        <span class="hljs-built_in">console</span>.log(name2); <span class="hljs-comment">//张三</span><br>        <span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">//空 </span><br>        <span class="hljs-comment">// 原因： 冒号左边的name只用来进行属性名的匹配， 冒号右边才是真正赋值的变量</span><br><span class="hljs-comment">//嵌套写法</span><br><span class="hljs-keyword">let</span> data = &#123;<span class="hljs-attr">id</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;家电&#x27;</span>, <span class="hljs-attr">googs</span>: &#123;<span class="hljs-attr">id</span>: <span class="hljs-number">3</span>,<span class="hljs-attr">uname</span>: <span class="hljs-string">&#x27;冰箱&#x27;</span>&#125; &#125;<br>            <span class="hljs-comment">//从data中解构出googs对象下的name</span><br>        <span class="hljs-keyword">let</span> &#123;<span class="hljs-attr">googs</span>:&#123;uname,id&#125;&#125; = data;<br>        <span class="hljs-built_in">console</span>.log(uname); <span class="hljs-comment">//冰箱</span><br></code></pre></td></tr></table></figure>
+<h3 id="4-箭头函数"><a href="#4-箭头函数" class="headerlink" title="4.箭头函数"></a>4.箭头函数</h3><h4 id="4-1-箭头函数表达式"><a href="#4-1-箭头函数表达式" class="headerlink" title="4.1 箭头函数表达式"></a>4.1 箭头函数表达式</h4><p> () =&gt; {}   小括号内是形参 大括号内是函数体</p>
+<h4 id="4-2-箭头函数的特点"><a href="#4-2-箭头函数的特点" class="headerlink" title="4.2 箭头函数的特点"></a>4.2 箭头函数的特点</h4><ul>
+<li>一般不会单独使用, 可以当做匿名函数进行赋值 \ 传参 \ 返回值</li>
+<li>如果函数体只有一行代码，并代码执行结果就是返回值, 可以同时省略大括号和 return</li>
+<li>如果形参只有一个, 可以省略小括号</li>
+<li>内部没有 arguments 这个内置对象</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 计算两个数的和</span><br>        <span class="hljs-comment">// 函数体只有一行代码, 结果就是返回值时, 可以直接省略大括号 </span><br>        <span class="hljs-keyword">let</span> getSum = <span class="hljs-function">(<span class="hljs-params">num1, num2</span>) =&gt;</span> num1 + num2 <span class="hljs-comment">//省略大括号和return</span><br>        <span class="hljs-keyword">var</span> res = getSum(<span class="hljs-number">5</span>, <span class="hljs-number">10</span>);<br>        <span class="hljs-built_in">console</span>.log(res); <span class="hljs-comment">//15</span><br><br><span class="hljs-comment">// 使用箭头函数遍历数组</span><br>        <span class="hljs-keyword">var</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>];<br>        <span class="hljs-comment">//1 2 3 4 5 这里形参如果写两个的话 小括号不能省略</span><br>        <span class="hljs-comment">//arr1.forEach((item, index) =&gt; console.log(item)); </span><br>        <span class="hljs-comment">//如果形参只有一个, 可以省略小括号  </span><br>        arr1.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(item)); <span class="hljs-comment">//1 2 3 4 5</span><br><br><span class="hljs-comment">// 筛选出数组中所有的偶数</span><br>        <span class="hljs-keyword">var</span> arr2 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>]<br>        <span class="hljs-keyword">var</span> newArr2 = arr2.filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>); <span class="hljs-comment">//这里省略了小括号和大括号和return</span><br>        <span class="hljs-built_in">console</span>.log(newArr2); <span class="hljs-comment">//2 4 6</span><br></code></pre></td></tr></table></figure>
+<h4 id="4-3-箭头函数的this指向"><a href="#4-3-箭头函数的this指向" class="headerlink" title="4.3 箭头函数的this指向"></a>4.3 箭头函数的this指向</h4><p>箭头函数没有自己的 this, 它里面的 this 指向箭头函数所处位置的 this</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 例子1:</span><br>        <span class="hljs-keyword">const</span> obj = &#123;<br>            name: <span class="hljs-string">&#x27;张三&#x27;</span><br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>)<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">const</span> resFn = fn.call(obj) <span class="hljs-comment">//这里log出的this 被call改成了obj 所以输出obj</span><br>        resFn() <span class="hljs-comment">//它里面的 this 指向箭头函数所处位置的 this所以也是obj</span><br><span class="hljs-comment">// 例子2:</span><br>        <span class="hljs-keyword">const</span> obj1 = &#123;<br>            age: <span class="hljs-number">20</span>,<br>            say: <span class="hljs-function">() =&gt;</span> &#123;<br>                alert(<span class="hljs-built_in">this</span>.age)<br>            &#125;<br>        &#125;;<br>        obj1.say(); <span class="hljs-comment">//这里输出undefined</span><br>        <span class="hljs-comment">// 原因：  因为say里面箭头函数的this 指向所处位置的this 也就是obj1的this</span><br>        <span class="hljs-comment">// 非函数中的this 指向window</span><br>        <span class="hljs-comment">// 所以调用后 window.age 为undefined 因为window下面没有age这个值</span><br><span class="hljs-comment">// 例子3</span><br>       <span class="hljs-keyword">const</span> btn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;button&#x27;</span>);<br>            btn.addEventListener(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>            <span class="hljs-comment">//这里虽然btn事件里的this指向btn  但是定时器的this是指向window的</span><br>            <span class="hljs-comment">// 所以正常写法定时器里不能用this  但可以使用箭头函数</span><br>            <span class="hljs-built_in">setInterval</span>(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">this</span>.disabled = <span class="hljs-literal">true</span>, <span class="hljs-number">3000</span>)<br>             &#125;)<br><br></code></pre></td></tr></table></figure>
+<h4 id="复习this指向"><a href="#复习this指向" class="headerlink" title="复习this指向"></a>复习this指向</h4><ol>
+<li>非函数中的 this 指向 window</li>
+<li>es5 中函数的 this 指向函数的调用者</li>
+<li>call, apply, bind 这三种手动改变 this 的情况特殊对待, this 指向传递的第一个参数</li>
+<li>es6 中的箭头函数没有自己的 this, 指向所处位置的 this</li>
+</ol>
+<h3 id="5-剩余参数"><a href="#5-剩余参数" class="headerlink" title="5.剩余参数"></a>5.剩余参数</h3><h4 id="5-1-剩余参数语法：-…变量名"><a href="#5-1-剩余参数语法：-…变量名" class="headerlink" title="5.1 剩余参数语法：  (…变量名)"></a>5.1 剩余参数语法：  (…变量名)</h4><p>允许我们将剩下的所有参数表示为一个<span style ='color:red'><strong>数组</strong> </span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">a, ...rest</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">//1</span><br>    <span class="hljs-built_in">console</span>.log(rest); <span class="hljs-comment">// [2,3,4]</span><br> &#125;;<br> fn(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>);<br><br><span class="hljs-comment">// 2. 用来计算多个数的和 (1, 2, 3, 4, 5)</span><br><span class="hljs-keyword">const</span> getSum = <span class="hljs-function">(<span class="hljs-params">...rest</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;<br>    rest.forEach(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> sum += item);<br>    <span class="hljs-built_in">console</span>.log(sum); <span class="hljs-comment">//15</span><br>&#125;<br>getSum(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)<br></code></pre></td></tr></table></figure>
+<h4 id="5-2-剩余参数和解构配合使用"><a href="#5-2-剩余参数和解构配合使用" class="headerlink" title="5.2 剩余参数和解构配合使用"></a>5.2 剩余参数和解构配合使用</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 剩余参数使用在解构赋值中, 表示数组中剩余的所有元素 ，或者对象中剩余的所有属性</span><br>        <span class="hljs-keyword">const</span> arr = [<span class="hljs-string">&#x27;red&#x27;</span>, <span class="hljs-string">&#x27;orange&#x27;</span>, <span class="hljs-string">&#x27;yellow&#x27;</span>, <span class="hljs-string">&#x27;green&#x27;</span>, <span class="hljs-string">&#x27;black&#x27;</span>]<br>        <span class="hljs-keyword">const</span> obj = &#123;<br>            name: <span class="hljs-string">&#x27;小明&#x27;</span>,<br>            age: <span class="hljs-number">12</span>,<br>            height: <span class="hljs-string">&#x27;170cm&#x27;</span>,<br>            weight: <span class="hljs-string">&#x27;135kg&#x27;</span>,<br>        &#125;<br><br><span class="hljs-comment">// 1. 把数组中剩下的元素组成新的数组</span><br>        <span class="hljs-keyword">let</span> [a, ...rest1] = arr;<br>        <span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">//red</span><br>        <span class="hljs-built_in">console</span>.log(rest1); <span class="hljs-comment">//[&quot;orange&quot;, &quot;yellow&quot;, &quot;green&quot;, &quot;black&quot;]</span><br><br><span class="hljs-comment">// 2. 把对象剩下的属性组成一个新对象</span><br>        <span class="hljs-keyword">let</span> &#123;<br>            name,<br>            ...rest2<br>        &#125; = obj;<br>        <span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">//小明</span><br>        <span class="hljs-built_in">console</span>.log(rest2); <span class="hljs-comment">//&#123;age: 12, height: &quot;170cm&quot;, weight: &quot;135kg&quot;&#125;</span><br><br><span class="hljs-comment">// 3. 使用剩余参数快速实现浅拷贝</span><br>        <span class="hljs-keyword">let</span> &#123;...obj2<br>        &#125; = obj;<br>        <span class="hljs-built_in">console</span>.log(obj2); <span class="hljs-comment">//&#123;name: &quot;小明&quot;, age: 12, height: &quot;170cm&quot;, weight: &quot;135kg&quot;&#125;</span><br>        obj.name = <span class="hljs-string">&#x27;小王&#x27;</span>;<br>        <span class="hljs-built_in">console</span>.log(obj2.name);<br></code></pre></td></tr></table></figure>
+<h4 id="注意！！"><a href="#注意！！" class="headerlink" title="注意！！"></a>注意！！</h4><p><strong>剩余参数和拓展运算符的区别是</strong>  </p>
+<p><span style ='color:red'><strong>剩余参数是（…变量名）  是用小括号包起来的</strong> </span></p>
+<p><span style ='color:red'><strong>拓展运算符是[…数组名] 或{…对象名} 是用大括号包起来的</strong> </span></p>
+<h2 id="三、ES6内置对象方法拓展"><a href="#三、ES6内置对象方法拓展" class="headerlink" title="三、ES6内置对象方法拓展"></a>三、ES6内置对象方法拓展</h2><h3 id="1-拓展运算符"><a href="#1-拓展运算符" class="headerlink" title="1.拓展运算符"></a>1.拓展运算符</h3><h3 id="2-模板字符串"><a href="#2-模板字符串" class="headerlink" title="2.模板字符串"></a>2.模板字符串</h3><h3 id="3-数组的扩展方法"><a href="#3-数组的扩展方法" class="headerlink" title="3.数组的扩展方法"></a>3.数组的扩展方法</h3><h4 id="3-1Array-from-方法"><a href="#3-1Array-from-方法" class="headerlink" title="3.1Array.from()方法"></a>3.1Array.from()方法</h4><h4 id="3-2-数组find-方法"><a href="#3-2-数组find-方法" class="headerlink" title="3.2 数组find()方法"></a>3.2 数组find()方法</h4><h4 id="3-3-数组findIndex-方法"><a href="#3-3-数组findIndex-方法" class="headerlink" title="3.3 数组findIndex()方法"></a>3.3 数组findIndex()方法</h4><h4 id="3-4-数组findIndex-方法"><a href="#3-4-数组findIndex-方法" class="headerlink" title="3.4.数组findIndex()方法"></a>3.4.数组findIndex()方法</h4><h4 id="3-5-数组includes-方法和map-方法"><a href="#3-5-数组includes-方法和map-方法" class="headerlink" title="3.5 数组includes() 方法和map()方法"></a>3.5 数组includes() 方法和map()方法</h4><h3 id="4-字符串的扩展方法"><a href="#4-字符串的扩展方法" class="headerlink" title="4.字符串的扩展方法"></a>4.字符串的扩展方法</h3><h4 id="4-1字符串的startsWith-和endsWith-方法"><a href="#4-1字符串的startsWith-和endsWith-方法" class="headerlink" title="4.1字符串的startsWith()和endsWith()方法"></a>4.1字符串的startsWith()和endsWith()方法</h4><h4 id="4-2-字符串的repeat-n-方法"><a href="#4-2-字符串的repeat-n-方法" class="headerlink" title="4.2 字符串的repeat(n) 方法"></a>4.2 字符串的repeat(n) 方法</h4><h3 id="5-Set数据结构"><a href="#5-Set数据结构" class="headerlink" title="5.Set数据结构"></a>5.Set数据结构</h3><h4 id="5-1-Set的方法"><a href="#5-1-Set的方法" class="headerlink" title="5.1 Set的方法"></a>5.1 Set的方法</h4><h4 id="5-2-Set的遍历"><a href="#5-2-Set的遍历" class="headerlink" title="5.2 Set的遍历"></a>5.2 Set的遍历</h4>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC05%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS 高级第五天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC01%E5%A4%A9%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">JS 基础第一天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
