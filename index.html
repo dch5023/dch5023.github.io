@@ -181,20 +181,41 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/09/Ajax%E7%AC%AC01%E5%A4%A9/">Ajax第一天</a>
+        <a href="/2021/02/21/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">Node.js部分npm命令</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/09/Ajax%E7%AC%AC01%E5%A4%A9/">
+        <a href="/2021/02/21/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">
           
           
             
           
-          Ajax第一天一、客户端与服务器（⭐⭐⭐）1.上网的目的上网的本质目的：通过互联网的形式来 获取和消费资源
-2.服务器上网过程中，负责 存放和对外提供资源 的电脑，叫做服务器
-3.客户端在上网过程中，负责 获取和消费资源 的电脑，叫做客户端
-二、URL地址的概念和组成1.URL地址 (链接)互联网资源的统一定位标识符, 用来标识互联网上每个资源的存放位置
-2.URL地址的三部分组成URL地址一般由
+          Node.js 部分npm命令部分基础命令
+
+
+code ~/.npmrc
+配置文档  在里面加 loglevel=http 能看到下载的信息
+
+
+
+npm i或install 完整的包名称
+下载包(核心依赖包)
+
+
+npm i 包1 包2 包3
+一次性下载多个包
+
+
+npm view 包名
+查看包
+
+
+npm i
+一次性安装所有的依赖包
+
+
+npm uninstall 包名
+卸载包 （没有简写）
         </a>
       </p>
 
@@ -202,8 +223,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
+            <time datetime="2021-02-21 00:00" pubdate>
+              2021-02-21
             </time>
           </div>
         
@@ -211,7 +232,202 @@
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Ajax/">Ajax</a>
+              <a href="/categories/Node-js/">Node.js</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/21/Node.js%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">Node.js的模块加载机制</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/21/Node.js%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+          
+          
+            
+          
+          Node.js的模块加载机制1. 模块的缓存机制1234567一、模块优先从缓存中进行加载      模块在第一次加载后会被缓存, 如果每次调用 require(&#x27;foo&#x27;) 都解析到同一文件，则返回相同的对象,   不会导致模块的代码被执行多次二、缓存的作用     不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的   加
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-21 00:00" pubdate>
+              2021-02-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Node-js/">Node.js</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/21/Node.js%E7%AC%AC01%E5%A4%A9/">Node.js第一天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/21/Node.js%E7%AC%AC01%E5%A4%A9/">
+          
+          
+            
+          
+          Node.js第一天一、初识node.js1.什么是node.jsNode.js® is a JavaScript runtime built on Chrome’s V8 JavaScript engine. 
+Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
+2.node.js的学习途径JavaScript 基础语法 + Node.js 内置 API 模
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-21 00:00" pubdate>
+              2021-02-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Node-js/">Node.js</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/21/Node.js%E7%AC%AC03%E5%A4%A9/">Node.js第三天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/21/Node.js%E7%AC%AC03%E5%A4%A9/">
+          
+          
+            
+          
+          Node.js第三天一、包1234567891011121314一、什么叫做包 (package)？       带有一个 package.json 文件的目录称为包, 用来描述多个模块之间互相依赖的关系, 通常第三方模块都是以一个    包的形式存在, 又称为 &quot;第三方包&quot;     二、包的来源      通常我们直接使用第三方个人或团队开发出来的软件包, 进行免费下载和使用
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-21 00:00" pubdate>
+              2021-02-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Node-js/">Node.js</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/21/Node.js%E7%AC%AC02%E5%A4%A9/">Node.js第二天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/21/Node.js%E7%AC%AC02%E5%A4%A9/">
+          
+          
+            
+          
+          Node.js第二天一、http模块123服务器和客户端的概念回顾 客户端负责向服务器发送请求, 获取数据并进行使用; 服务器负责接收来自客户端的网络请求, 处理数据并进行返回
+http 模块是 Node.js 官方提供的、用来创建 web 服务器的模块。通过 http 模块提供的 **http.createServer() **方法，就 能方便的把一台普通的电脑，变成一台 Web 服务器，从而对
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-21 00:00" pubdate>
+              2021-02-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Node-js/">Node.js</a>
             
           </div>
         
@@ -337,33 +553,20 @@ MDN 官方给定的概念：同源策略限制了从同一个源加载的文档�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/09/Ajax%E7%AC%AC05%E5%A4%A9/">Ajax第五天</a>
+        <a href="/2021/02/09/Ajax%E7%AC%AC01%E5%A4%A9/">Ajax第一天</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/09/Ajax%E7%AC%AC05%E5%A4%A9/">
+        <a href="/2021/02/09/Ajax%E7%AC%AC01%E5%A4%A9/">
           
           
             
           
-          HTTP协议简介什么是通信通信，就是信息的传递和交换。
-通信三要素：
-
-通信的主体
-
-通信的内容
-
-通信的方式
-
-
-现实生活中的通信案例：张三要把自己考上传智专修学院的好消息写信告诉自己的好朋友李四
-其中：
-通信的主体是张三和李四；
-通信的内容是考上传智专修学院；
-通信的方式是写信；
-互联网中的通信案例：服务器把传智专修学院的简介通过响应的方式发送给客户端浏览器。
-其中，
-通信的主体是服务器和客户
+          Ajax第一天一、客户端与服务器（⭐⭐⭐）1.上网的目的上网的本质目的：通过互联网的形式来 获取和消费资源
+2.服务器上网过程中，负责 存放和对外提供资源 的电脑，叫做服务器
+3.客户端在上网过程中，负责 获取和消费资源 的电脑，叫做客户端
+二、URL地址的概念和组成1.URL地址 (链接)互联网资源的统一定位标识符, 用来标识互联网上每个资源的存放位置
+2.URL地址的三部分组成URL地址一般由
         </a>
       </p>
 
@@ -381,6 +584,55 @@ MDN 官方给定的概念：同源策略限制了从同一个源加载的文档�
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/Ajax/">Ajax</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC04%E5%A4%A9/">JS 高级第四天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC04%E5%A4%A9/">
+          
+          
+            
+          
+          JS高级第04天1.正则表达式概述1.1什么是正则表达式正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。
+正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。此外，正则表达式还常用于过滤掉页面内容中的一些敏感词(替
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-09 00:00" pubdate>
+              2021-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
             
           </div>
         
@@ -453,283 +705,11 @@ MDN 官方给定的概念：同源策略限制了从同一个源加载的文档�
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/">JS 高级第二天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/">
-          
-          
-            
-          
-          JS高级第二天一、构造函数和原型1.创建对象的三种方式 —– 复习
-字面量方式  
-
-1var obj = &#123;&#125;;
-
-new关键字
-
-1var obj = new Object();
-
-构造函数方式
-
-12345function Person(name,age)&#123;this.name = name;this.age = age;&#125;var obj = new P
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC04%E5%A4%A9/">JS 高级第四天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC04%E5%A4%A9/">
-          
-          
-            
-          
-          JS高级第04天1.正则表达式概述1.1什么是正则表达式正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。
-正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。此外，正则表达式还常用于过滤掉页面内容中的一些敏感词(替
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC05%E5%A4%A9/">JS 高级第五天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC05%E5%A4%A9/">
-          
-          
-            
-          
-          ES6语法ES6相关概念（★★）什么是ES6ES 的全称是 ECMAScript , 它是由 ECMA 国际标准化组织,制定的一项脚本语言的标准化规范。
-
-为什么使用 ES6 ?每一次标准的诞生都意味着语言的完善，功能的加强。JavaScript语言本身也有一些令人不满意的地方。
-
-变量提升特性增加了程序运行时的不可预测性
-语法过于松散，实现相同的功能，不同的人可能会写出不同的代码
-
-ES6新增语
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC06%E5%A4%A9/">JS 高级第六天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC06%E5%A4%A9/">
-          
-          
-            
-          
-          ES6语法一、ES6相关概念1.什么是ES6ES 的全称是 ECMAScript , 它是由 ECMA 国际标准化组织,制定的一项脚本语言的标准化规范。
-2.为什么使用ES6
-变量提升特性增加了程序运行时的不可预测性
-语法过于松散，实现相同的功能，不同的人可能会写出不同的代码
-
-二、ES6新增语法1.let1.1 let的作用用来声明一个有块级作用域的变量，使用方法和 var 一样
-1.2 let
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC01%E5%A4%A9%E7%AC%94%E8%AE%B0/">JS 基础第一天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC01%E5%A4%A9%E7%AC%94%E8%AE%B0/">
-          
-          
-            
-          
-          JS 基础第一天一、JavaScript认识1、什么是JS？全称JavaScript，是一种运行在客户端的脚本语言。
-脚本语言：不需要编译，运行过程中由 js 解释器( js 引擎）逐行来进行解释并执行。
-4、JS组成
-二、JS注释1、单行注释1//单行文本注释
-默认快捷键：ctrl +/
-2、多行文本注释1/*多行文本注释*/
-默认快捷键：Alt+shift+a
-三、JavaScript输入输出
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JS%E5%9F%BA%E7%A1%80/">JS基础</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

@@ -181,6 +181,268 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/02/09/Web%20API%E7%AC%AC05%E5%A4%A9/">Web API第五天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/09/Web%20API%E7%AC%AC05%E5%A4%A9/">
+          
+          
+            
+          
+          day05 - Web APIs**1.1. **元素偏移量 offset 系列1.1.1 offset 概述offset 翻译过来就是偏移量， 我们使用 offset系列相关属性可以动态的得到该元素的位置（偏移）、大小等。
+
+获得元素距离带有定位父元素的位置
+
+获得元素自身的大小（宽度高度）
+
+注意：返回的数值都不带单位
+
+
+
+![图片2](F:\Web APIs\Web APIs 第五天\笔记
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-09 00:00" pubdate>
+              2021-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web-api/">web api</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/09/Web%20API%E7%AC%AC06%E5%A4%A9/">Web API第六天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/09/Web%20API%E7%AC%AC06%E5%A4%A9/">
+          
+          
+            
+          
+          day06 - Web APIs**1.1. **动画函数封装1.1.1 缓动效果原理缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来
+思路：
+
+让盒子每次移动的距离慢慢变小，速度就会慢慢落下来。
+核心算法： (目标值 - 现在的位置)   /  10    做为每次移动的距离步长
+停止的条件是： 让当前盒子位置等于目标位置就停止定时器  
+注意步长值需要取整  
+
+1.1.2 动画
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-09 00:00" pubdate>
+              2021-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web-api/">web api</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/09/Web%20API%E7%AC%AC01%E5%A4%A9/">Web API第一天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/09/Web%20API%E7%AC%AC01%E5%A4%A9/">
+          
+          
+            
+          
+          Web API第一天一、Web API介绍1.API介绍（Application Programming Interface，应用程序编程接口）是一些预先定义的函数，只需直接调用使用即可。
+2、Web  API的概念Web API 是浏览器提供的一套操作浏览器功能和页面元素的 API ( BOM 和 DOM )。
+MDN 详细 API : https://developer.mozilla.org
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-09 00:00" pubdate>
+              2021-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web-api/">web api</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/09/Web%20API%E7%AC%AC07%E5%A4%A9/">Web API第七天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/09/Web%20API%E7%AC%AC07%E5%A4%A9/">
+          
+          
+            
+          
+          day07 - Web APIs1.1. 触屏事件1.1.1 触屏事件概述移动端浏览器兼容性较好，我们不需要考虑以前 JS 的兼容性问题，可以放心的使用原生 JS 书写效果，但是移动端也有自己独特的地方。比如触屏事件 touch（也称触摸事件），Android 和 IOS 都有。touch 对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。触屏事件可响应用户手指（或触控笔）对屏幕或者触
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-09 00:00" pubdate>
+              2021-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/web-api/">web api</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/02/09/jQuery%E7%AC%AC01%E5%A4%A9/">jQuery第一天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/02/09/jQuery%E7%AC%AC01%E5%A4%A9/">
+          
+          
+            
+          
+          day01 - jQuery1.1. jQuery 介绍1.1.1 JavaScript 库 为了解决一些通用的功能需求，把相关的方法封装在一个 js 文件中，我们称为 js 库
+   例如：fastClick；flexiable.js; zy.media.js; swiper.js…
+1.1.2 jQuery的概念​    封装了一系列操作原生 dom 元素的功能库，比如获取元素，给元素做动画等
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-02-09 00:00" pubdate>
+              2021-02-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/jQuery/">jQuery</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/02/09/jQuery%E7%AC%AC02%E5%A4%A9/">jQuery第二天</a>
       </h1>
 
@@ -265,64 +527,6 @@
             <i class="iconfont icon-category"></i>
             
               <a href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/09/Web%20API%E7%AC%AC02%E5%A4%A9/">Web API第二天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/09/Web%20API%E7%AC%AC02%E5%A4%A9/">
-          
-          
-            
-          
-          day02 - Web APIs1.1. 排他操作1.1.1 排他思想![1550914482628](/img/web api01_1.png)
-如果有同一组元素，我们想要某一个元素实现某种样式， 需要用到循环的排他思想算法：
-
-所有元素全部清除样式（干掉其他人）
-
-给当前元素设置样式 （留下我自己）
-
-注意顺序不能颠倒，首先干掉其他人，再设置自己
-
-
-123456789101112131415
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/web-api/">web api</a>
             
           </div>
         
@@ -444,24 +648,26 @@ node.removeChild() 方法从 node节点中删除一个子节点，返回删除�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/09/jQuery%E7%AC%AC03%E5%A4%A9/">jQuery第三天</a>
+        <a href="/2021/02/09/Web%20API%E7%AC%AC02%E5%A4%A9/">Web API第二天</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/09/jQuery%E7%AC%AC03%E5%A4%A9/">
+        <a href="/2021/02/09/Web%20API%E7%AC%AC02%E5%A4%A9/">
           
           
             
           
-          day03 - jQuery1.1. jQuery 事件注册​    jQuery 为我们提供了方便的事件注册机制，是开发人员抑郁操作优缺点如下：
+          day02 - Web APIs1.1. 排他操作1.1.1 排他思想![](Web API第02天/web api01_1.png)
+如果有同一组元素，我们想要某一个元素实现某种样式， 需要用到循环的排他思想算法：
 
-优点: 操作简单，且不用担心事件覆盖等问题。
-缺点: 普通的事件注册不能做事件委托，且无法实现事件解绑，需要借助其他方法。
+所有元素全部清除样式（干掉其他人）
 
-语法
+给当前元素设置样式 （留下我自己）
 
-演示代码
-1234567891011121314&lt;body&gt;    &lt;div&gt;&lt;/di
+注意顺序不能颠倒，首先干掉其他人，再设置自己
+
+
+123456789101112131415161718
         </a>
       </p>
 
@@ -478,130 +684,7 @@ node.removeChild() 方法从 node节点中删除一个子节点，返回删除�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/jQuery/">jQuery</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/28/hello-world/">Hello World</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/28/hello-world/">
-          
-          
-            
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-28 19:16" pubdate>
-              2021-01-28
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/01/28/JS%E5%9F%BA%E7%A1%80%20-%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">JS数组的相关方法</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/28/JS%E5%9F%BA%E7%A1%80%20-%20%E6%95%B0%E7%BB%84%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">
-          
-          
-            
-          
-          JS数组的相关方法
-
-
-方法名
-作用
-参数
-返回值
-修改原数组
-
-
-
-★push(n1, n2)
-追加元素到数组末尾
-要追加的元素
-数组的长度
-修改
-
-
-unshift(n1, n2)
-追加元素到数组开头
-要追加的元素
-数组的长度
-修改
-
-
-Array.isArray()
-判断一个值是否是数组
-值或变量
-布尔值
-–
-
-
-pop()
-从数组末尾删除一个元素
-无
-删除的元素
-修改
-
-
-shift()
-
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-28 00:00" pubdate>
-              2021-01-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E7%9B%B8%E5%85%B3%E6%96%B9%E6%B3%95/">相关方法</a>
+              <a href="/categories/web-api/">web api</a>
             
           </div>
         
@@ -621,7 +704,7 @@ shift()
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
   

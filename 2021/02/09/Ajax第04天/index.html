@@ -229,7 +229,7 @@
             <div class="markdown-body">
               <h1 id="同源策略-⭐⭐⭐"><a href="#同源策略-⭐⭐⭐" class="headerlink" title="同源策略(⭐⭐⭐)"></a>同源策略(⭐⭐⭐)</h1><h2 id="什么是同源"><a href="#什么是同源" class="headerlink" title="什么是同源"></a>什么是同源</h2><p>如果两个页面的协议，域名和端口都相同，则两个页面具有<strong>相同的源</strong>。</p>
 <p>例如，下表给出了相对于 <a target="_blank" rel="noopener" href="http://www.test.com/index.html">http://www.test.com/index.html</a> 页面的同源检测：</p>
-<p><img src="images/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.png" srcset="/img/loading.gif"></p>
 <h2 id="什么是同源策略"><a href="#什么是同源策略" class="headerlink" title="什么是同源策略"></a>什么是同源策略</h2><p><strong>同源策略</strong>（英文全称 Same origin policy）是<strong>浏览器</strong>提供的一个<strong>安全功能</strong></p>
 <p><strong><code>MDN</code> 官方给定的概念</strong>：同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这</p>
 <p>是一个用于隔离潜在恶意文件的重要安全机制</p>
@@ -241,7 +241,7 @@
 <p>出现跨域的根本原因：<strong>浏览器的同源策略</strong>不允许非同源的 URL 之间进行资源的交互</p>
 <p>网页：<code>http://www.test.com/index.html</code></p>
 <p>接口：<code>http://www.api.com/userlist</code></p>
-<h2 id="浏览器对跨域请求的拦截"><a href="#浏览器对跨域请求的拦截" class="headerlink" title="浏览器对跨域请求的拦截"></a>浏览器对跨域请求的拦截</h2><p><img src="images/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B7%A8%E5%9F%9F%E6%8B%A6%E6%88%AA.png" srcset="/img/loading.gif"></p>
+<h2 id="浏览器对跨域请求的拦截"><a href="#浏览器对跨域请求的拦截" class="headerlink" title="浏览器对跨域请求的拦截"></a>浏览器对跨域请求的拦截</h2><p><img src="/images/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AF%B9%E8%B7%A8%E5%9F%9F%E6%8B%A6%E6%88%AA.png" srcset="/img/loading.gif"></p>
 <p><strong>注意：</strong>浏览器允许发起跨域请求，但是，跨域请求回来的数据，会被浏览器拦截，无法被页面获取到！</p>
 <h2 id="如何实现跨域数据请求"><a href="#如何实现跨域数据请求" class="headerlink" title="如何实现跨域数据请求"></a>如何实现跨域数据请求</h2><p>现如今，实现跨域数据请求，最主要的两种解决方案，分别是 <code>JSONP</code> 和 <code>CORS</code>。</p>
 <p><strong><code>JSONP</code>：</strong>出现的早，兼容性好（兼容低版本IE）。是前端程序员为了解决跨域问题，被迫想出来的一种临时解决方案。<strong>缺点</strong>是只支持 <code>GET</code> 请求，不支持 <code>POST</code> 请求。</p>
@@ -269,7 +269,7 @@
 <li><p>在 <code>JSONP</code> 请求成功以后，动态从 <code>&lt;header&gt;</code> 中移除刚才 <code>append</code> 进去的 <code>&lt;script&gt;</code> 标签；</p>
 </li>
 </ul>
-<h1 id="案例-–-淘宝搜索"><a href="#案例-–-淘宝搜索" class="headerlink" title="案例 – 淘宝搜索"></a><strong>案例</strong> <strong>–</strong> 淘宝搜索</h1><h2 id="要实现的UI效果"><a href="#要实现的UI效果" class="headerlink" title="要实现的UI效果"></a>要实现的<code>UI</code>效果</h2><p><img src="images/%E6%B7%98%E5%AE%9D%E6%90%9C%E7%B4%A2%E6%A1%88%E4%BE%8B.png" srcset="/img/loading.gif"></p>
+<h1 id="案例-–-淘宝搜索"><a href="#案例-–-淘宝搜索" class="headerlink" title="案例 – 淘宝搜索"></a><strong>案例</strong> <strong>–</strong> 淘宝搜索</h1><h2 id="要实现的UI效果"><a href="#要实现的UI效果" class="headerlink" title="要实现的UI效果"></a>要实现的<code>UI</code>效果</h2><p><img src="/images/%E6%B7%98%E5%AE%9D%E6%90%9C%E7%B4%A2%E6%A1%88%E4%BE%8B.png" srcset="/img/loading.gif"></p>
 <h2 id="获取用户输入的搜索关键词"><a href="#获取用户输入的搜索关键词" class="headerlink" title="获取用户输入的搜索关键词"></a>获取用户输入的搜索关键词</h2><p>为了获取到用户每次按下键盘输入的内容，需要监听输入框的 <code>keyup</code> 事件，示例代码如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 监听文本框的 keyup 事件</span><br>$(<span class="hljs-string">&#x27;#ipt&#x27;</span>).on(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>     <span class="hljs-comment">// 获取用户输入的内容</span><br>     <span class="hljs-keyword">var</span> keywords = $(<span class="hljs-built_in">this</span>).val().trim()<br>     <span class="hljs-comment">// 判断用户输入的内容是否为空</span><br>     <span class="hljs-keyword">if</span> (keywords.length &lt;= <span class="hljs-number">0</span>) &#123;<br>     <span class="hljs-keyword">return</span><br>     &#125;<br>     <span class="hljs-comment">// TODO：获取搜索建议列表</span><br>&#125;)<br></code></pre></td></tr></table></figure>
 <h2 id="封装getSuggestList函数"><a href="#封装getSuggestList函数" class="headerlink" title="封装getSuggestList函数"></a>封装<code>getSuggestList</code>函数</h2><p>将获取搜索建议列表的代码，封装到 <code>getSuggestList</code> 函数中，示例代码如下：</p>
@@ -296,7 +296,7 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$(<span class="hljs-string">&#x27;#ipt&#x27;</span>).on(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>     <span class="hljs-comment">// 获取用户输入的内容</span><br>     <span class="hljs-keyword">var</span> keywords = $(<span class="hljs-built_in">this</span>).val().trim()<br>     <span class="hljs-comment">// 判断用户输入的内容是否为空</span><br>     <span class="hljs-keyword">if</span> (keywords.length &lt;= <span class="hljs-number">0</span>) &#123;<br>     <span class="hljs-comment">// 如果关键词为空，则清空后隐藏搜索建议列表</span><br>     <span class="hljs-keyword">return</span> $(<span class="hljs-string">&#x27;#suggest-list&#x27;</span>).empty().hide()<br>     &#125;<br>     getSuggestList(keywords)<br>&#125;)<br></code></pre></td></tr></table></figure>
 <h1 id="防抖-amp-节流"><a href="#防抖-amp-节流" class="headerlink" title="防抖&amp;节流"></a>防抖&amp;节流</h1><h2 id="输入框防抖"><a href="#输入框防抖" class="headerlink" title="输入框防抖"></a>输入框防抖</h2><h3 id="什么是防抖-⭐⭐⭐"><a href="#什么是防抖-⭐⭐⭐" class="headerlink" title="什么是防抖(⭐⭐⭐)"></a>什么是防抖(⭐⭐⭐)</h3><p><strong>防抖策略</strong>（<code>debounce</code>）是当事件被触发后，延迟 <code>n</code> 秒后再执行回调，如果在这 <code>n</code> 秒内事件又被触发，则重新计时。</p>
-<p><img src="images/%E9%98%B2%E6%8A%96.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/%E9%98%B2%E6%8A%96.png" srcset="/img/loading.gif"></p>
 <p><strong>好处：</strong>能够保证用户在频繁触发某些事件的时候，不会频繁的执行回调，只会被执行一次</p>
 <h3 id="防抖的应用场景"><a href="#防抖的应用场景" class="headerlink" title="防抖的应用场景"></a>防抖的应用场景</h3><p>用户在输入框中连续输入一串字符时，可以通过防抖策略，只在输入完后，才执行查询的请求，这样可以有效减</p>
 <p>少请求次数，节约请求资源；</p>
@@ -316,10 +316,10 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 监听文本框的 keyup 事件</span><br>$(<span class="hljs-string">&#x27;#ipt&#x27;</span>).on(<span class="hljs-string">&#x27;keyup&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>     <span class="hljs-comment">// ...省略其他代码</span><br>     <span class="hljs-comment">// 优先从缓存中获取搜索建议</span><br>     <span class="hljs-keyword">if</span> (cacheObj[keywords]) &#123;<br>     <span class="hljs-keyword">return</span> renderSuggestList(cacheObj[keywords])<br>     &#125;<br>     <span class="hljs-comment">// 获取搜索建议列表</span><br>     debounceSearch(keywords)<br> &#125;)<br></code></pre></td></tr></table></figure>
 <h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><h3 id="什么是节流-⭐⭐⭐"><a href="#什么是节流-⭐⭐⭐" class="headerlink" title="什么是节流(⭐⭐⭐)"></a>什么是节流(⭐⭐⭐)</h3><p><strong>节流策略</strong>（<code>throttle</code>），顾名思义，可以减少一段时间内事件的触发频率。</p>
-<p><img src="images/%E8%8A%82%E6%B5%81.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/%E8%8A%82%E6%B5%81.png" srcset="/img/loading.gif"></p>
 <h3 id="节流的应用场景"><a href="#节流的应用场景" class="headerlink" title="节流的应用场景"></a>节流的应用场景</h3><p>① 鼠标连续不断地触发某事件（如点击），只在单位时间内只触发一次；</p>
 <p>② 懒加载时要监听计算滚动条的位置，但不必每次滑动都触发，可以降低计算的频率，而不必去浪费 CPU 资源；</p>
-<h3 id="节流案例-–-鼠标跟随效果"><a href="#节流案例-–-鼠标跟随效果" class="headerlink" title="节流案例 – 鼠标跟随效果"></a><strong>节流案例</strong> <strong>–</strong> 鼠标跟随效果</h3><h4 id="UI效果"><a href="#UI效果" class="headerlink" title="UI效果"></a><code>UI</code>效果</h4><p><img src="images/%E5%A4%A9%E4%BD%BFUI%E6%95%88%E6%9E%9C.png" srcset="/img/loading.gif"></p>
+<h3 id="节流案例-–-鼠标跟随效果"><a href="#节流案例-–-鼠标跟随效果" class="headerlink" title="节流案例 – 鼠标跟随效果"></a><strong>节流案例</strong> <strong>–</strong> 鼠标跟随效果</h3><h4 id="UI效果"><a href="#UI效果" class="headerlink" title="UI效果"></a><code>UI</code>效果</h4><p><img src="/images/%E5%A4%A9%E4%BD%BFUI%E6%95%88%E6%9E%9C.png" srcset="/img/loading.gif"></p>
 <h4 id="渲染UI结构并美化样式"><a href="#渲染UI结构并美化样式" class="headerlink" title="渲染UI结构并美化样式"></a>渲染<code>UI</code>结构并美化样式</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- UI 结构 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;./assets/angel.gif&quot;</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;angel&quot;</span> /&gt;</span><br>/* CSS 样式 */<br>html, body &#123;<br> margin: 0;<br> padding: 0;<br> overflow: hidden; &#125;<br>#angel &#123;<br> position: absolute; &#125;<br></code></pre></td></tr></table></figure>
 <h4 id="不使用节流时实现鼠标跟随效果"><a href="#不使用节流时实现鼠标跟随效果" class="headerlink" title="不使用节流时实现鼠标跟随效果"></a>不使用节流时实现鼠标跟随效果</h4><ul>
 <li>获取图片元素</li>
@@ -386,8 +386,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/09/Ajax%E7%AC%AC05%E5%A4%A9/">
-                        <span class="hidden-mobile">Ajax第五天</span>
+                      <a href="/2021/02/09/Ajax%E7%AC%AC01%E5%A4%A9/">
+                        <span class="hidden-mobile">Ajax第一天</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

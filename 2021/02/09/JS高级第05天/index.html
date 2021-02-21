@@ -228,7 +228,7 @@
             
             <div class="markdown-body">
               <h1 id="ES6语法"><a href="#ES6语法" class="headerlink" title="ES6语法"></a>ES6语法</h1><h2 id="ES6相关概念（★★）"><a href="#ES6相关概念（★★）" class="headerlink" title="ES6相关概念（★★）"></a>ES6相关概念（★★）</h2><h3 id="什么是ES6"><a href="#什么是ES6" class="headerlink" title="什么是ES6"></a>什么是ES6</h3><p>ES 的全称是 ECMAScript , 它是由 ECMA 国际标准化组织,制定的一项脚本语言的标准化规范。</p>
-<p><img src="images/es-version.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/es-version.png" srcset="/img/loading.gif"></p>
 <h3 id="为什么使用-ES6"><a href="#为什么使用-ES6" class="headerlink" title="为什么使用 ES6 ?"></a>为什么使用 ES6 ?</h3><p>每一次标准的诞生都意味着语言的完善，功能的加强。JavaScript语言本身也有一些令人不满意的地方。</p>
 <ul>
 <li>变量提升特性增加了程序运行时的不可预测性</li>
@@ -241,10 +241,10 @@
 <h4 id="暂时性死区"><a href="#暂时性死区" class="headerlink" title="暂时性死区"></a>暂时性死区</h4><p>利用let声明的变量会绑定在这个块级作用域，不会受外界的影响</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> tmp = <span class="hljs-number">123</span>;<br><span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123; <br>    tmp = <span class="hljs-string">&#x27;abc&#x27;</span>;<br>    <span class="hljs-keyword">let</span> tmp; <br>&#125; <br></code></pre></td></tr></table></figure>
 <h4 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> arr = [];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++) &#123;<br>    arr[i] = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-built_in">console</span>.log(i); <br>    &#125;<br>&#125;<br>arr[<span class="hljs-number">0</span>]();<br>arr[<span class="hljs-number">1</span>]();<br><br></code></pre></td></tr></table></figure>
-<p><img src="images/let%E9%9D%A2%E8%AF%95%E9%A2%98.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/let%E9%9D%A2%E8%AF%95%E9%A2%98.png" srcset="/img/loading.gif"></p>
 <p><strong>经典面试题图解：</strong>此题的关键点在于变量i是全局的，函数执行时输出的都是全局作用域下的i值。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> arr = [];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">2</span>; i++) &#123;<br>    arr[i] = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;<br>        <span class="hljs-built_in">console</span>.log(i); <br>    &#125;<br>&#125;<br>arr[<span class="hljs-number">0</span>]();<br>arr[<span class="hljs-number">1</span>]();<br><br></code></pre></td></tr></table></figure>
-<p><img src="images/let%E9%9D%A2%E8%AF%95%E9%A2%982.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/let%E9%9D%A2%E8%AF%95%E9%A2%982.png" srcset="/img/loading.gif"></p>
 <p><strong>经典面试题图解：</strong>此题的关键点在于每次循环都会产生一个块级作用域，每个块级作用域中的变量都是不同的，函数执行时输出的是自己上一级（循环产生的块级作用域）作用域下的i值.</p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><ul>
 <li>let关键字就是用来声明变量的</li>
@@ -268,7 +268,7 @@
 <li>使用 let 声明的变量，其作用域为该语句所在的代码块内，不存在变量提升</li>
 <li>使用 const 声明的是常量，在后面出现的代码中不能再修改该常量的值</li>
 </ul>
-<p><img src="images/var&let&const%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/var&let&const%E5%8C%BA%E5%88%AB.png" srcset="/img/loading.gif"></p>
 <h3 id="解构赋值（★★★）"><a href="#解构赋值（★★★）" class="headerlink" title="解构赋值（★★★）"></a>解构赋值（★★★）</h3><p>ES6中允许从数组中提取值，按照对应位置，对变量赋值，对象也可以实现解构</p>
 <h4 id="数组解构"><a href="#数组解构" class="headerlink" title="数组解构"></a>数组解构</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"> <span class="hljs-keyword">let</span> [a, b, c] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];<br> <span class="hljs-built_in">console</span>.log(a)<span class="hljs-comment">//1</span><br> <span class="hljs-built_in">console</span>.log(b)<span class="hljs-comment">//2</span><br> <span class="hljs-built_in">console</span>.log(c)<span class="hljs-comment">//3</span><br><span class="hljs-comment">//如果解构不成功，变量的值为undefined</span><br></code></pre></td></tr></table></figure>
 <h4 id="对象解构"><a href="#对象解构" class="headerlink" title="对象解构"></a>对象解构</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> person = &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;zhangsan&#x27;</span>, <span class="hljs-attr">age</span>: <span class="hljs-number">20</span> &#125;; <br><span class="hljs-keyword">let</span> &#123; name, age &#125; = person;<br><span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// &#x27;zhangsan&#x27; </span><br><span class="hljs-built_in">console</span>.log(age); <span class="hljs-comment">// 20</span><br><br><span class="hljs-keyword">let</span> &#123;<span class="hljs-attr">name</span>: myName, <span class="hljs-attr">age</span>: myAge&#125; = person; <span class="hljs-comment">// myName myAge 属于别名</span><br><span class="hljs-built_in">console</span>.log(myName); <span class="hljs-comment">// &#x27;zhangsan&#x27; </span><br><span class="hljs-built_in">console</span>.log(myAge); <span class="hljs-comment">// 20</span><br><br></code></pre></td></tr></table></figure>
@@ -365,9 +365,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC04%E5%A4%A9/">
+                      <a href="/2021/02/09/Ajax%E7%AC%AC05%E5%A4%A9/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS 高级第四天</span>
+                        <span class="hidden-mobile">Ajax第五天</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -375,8 +375,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC06%E5%A4%A9/">
-                        <span class="hidden-mobile">JS 高级第六天</span>
+                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/">
+                        <span class="hidden-mobile">JS 高级第二天</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
