@@ -17,7 +17,7 @@
   <meta name="description" content="前端菜鸟">
   <meta name="author" content="Dch">
   <meta name="keywords" content="前端">
-  <title>JS 基础第三天 - dch5023</title>
+  <title>SQL部分命令 - dch5023</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="JS 基础第三天">
+            <span class="h2" id="subtitle" title="SQL部分命令">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-09 00:00" pubdate>
-        2021年2月9日 凌晨
+      <time datetime="2021-02-25 00:00" pubdate>
+        2021年2月25日 凌晨
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      685 字
+      805 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      10
        分钟
     </span>
   
@@ -224,57 +224,20 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JS 基础第三天</h1>
+            <h1 style="display: none">SQL部分命令</h1>
             
             <div class="markdown-body">
-              <h1 id="JS基础第三天"><a href="#JS基础第三天" class="headerlink" title="JS基础第三天"></a>JS基础第三天</h1><h2 id="一、循环"><a href="#一、循环" class="headerlink" title="一、循环"></a>一、循环</h2><h3 id="1、for循环"><a href="#1、for循环" class="headerlink" title="1、for循环"></a>1、for循环</h3><p>语法结构：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">for</span>（初始化变量；条件表达式；操作表达式）｛<br><span class="hljs-comment">//循环体</span><br>｝<br></code></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>初始化变量</td>
-<td>通常被用于初始化一个计数器，该表达式可以使用 var 关键字声明新的变量，这个变量帮我们来记录次数。</td>
-</tr>
-<tr>
-<td>条件表达式</td>
-<td>用于确定每一次循环是否能被执行。如果结果是 true 就继续循环，否则退出循环。</td>
-</tr>
-<tr>
-<td>操作表达式</td>
-<td>用于确定每一次循环是否能被执行。如果结果是 true 就继续循环，否则退出循环。</td>
-</tr>
-</tbody></table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">断点调试的流程：<br><span class="hljs-number">1</span>、浏览器中按 F12--&gt; sources --&gt;找到需要调试的文件--&gt;在程序的某一行设置断点<br><span class="hljs-number">2</span>、Watch: 监视，通过watch可以监视变量的值的变化，非常的常用。<br><span class="hljs-number">3</span>、摁下F11，程序单步执行，让程序一行一行的执行，这个时候，观察watch中变量的值的变化。<br></code></pre></td></tr></table></figure>
-<h3 id="2、双重for循环"><a href="#2、双重for循环" class="headerlink" title="2、双重for循环"></a>2、双重for循环</h3><p>即在for循环中再次嵌套一个for循环</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">for</span>(...)&#123;<br>	<span class="hljs-keyword">for</span>(...)&#123;<span class="hljs-comment">//可以将中间的for循环看成一个整体</span><br>      ...<br>	&#125;<br>  ....<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>外层循环执行一次，内层循环需要执行全部次数，随后外层循环开始执行第二次，内层循环再次执行全部次数，直至外层循环结束。</p>
-<p><strong>相关经典案例：</strong></p>
-<p>打印乘法表、打印倒三角你星星</p>
-<h3 id="3、while循环"><a href="#3、while循环" class="headerlink" title="3、while循环"></a>3、while循环</h3><p>语法结构：</p>
-<p>while (条件表达式) {</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">while</span> (条件表达式) &#123;<br>    <span class="hljs-comment">// 循环体代码 </span><br>&#125;<br></code></pre></td></tr></table></figure>
-<ul>
-<li>先执行条件表达式，如果结果为 true，则执行循环体代码；如果为 false，则退出循环，执行后面代码</li>
-<li> 执行循环体代码</li>
-<li>循环体代码执行完毕后，程序会继续判断执行条件表达式，如条件仍为true，则会继续执行循环体，直到循环条件为 false 时，整个循环过程才会结束</li>
-</ul>
-<p><strong>注意：</strong>要添加退出条件，否则会成为死循环</p>
-<h3 id="4、do-while"><a href="#4、do-while" class="headerlink" title="4、do-while"></a>4、do-while</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">do</span> &#123;<br>    <span class="hljs-comment">// 循环体代码 - 条件表达式为 true 时重复执行循环体代码</span><br>&#125; <span class="hljs-keyword">while</span>(条件表达式);<br></code></pre></td></tr></table></figure>
-<p>和while循环类似，不同点do-while要先执行一次循环，再进行条件表达式判断。</p>
-<h3 id="5、continue、break"><a href="#5、continue、break" class="headerlink" title="5、continue、break"></a>5、continue、break</h3><p>continue 关键字：用于立即跳出本次循环，继续下一次循环（本次循环体中 continue 之后的代码就会少执行一次）。</p>
-<p>  break 关键字：用于立即跳出整个循环（循环结束）。</p>
-<h2 id="二、代码规范"><a href="#二、代码规范" class="headerlink" title="二、代码规范"></a>二、代码规范</h2><p>1、标识符命名规范</p>
-<ul>
-<li>变量、函数的命名必须要有意义</li>
-<li>变量的名称一般用名词  </li>
-<li>函数的名称一般用动词  </li>
-</ul>
-
+              <h1 id="SQL-部分命令"><a href="#SQL-部分命令" class="headerlink" title="SQL 部分命令"></a>SQL 部分命令</h1><h2 id="一、基础语句-增删改查"><a href="#一、基础语句-增删改查" class="headerlink" title="一、基础语句 增删改查"></a>一、基础语句 增删改查</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs sql">查询数据 <span class="hljs-keyword">select</span><br><span class="hljs-keyword">SELECT</span> 列名称 <span class="hljs-keyword">FROM</span> 表名称   列名称为<span class="hljs-operator">*</span>表示所有<br><span class="hljs-comment">-- 通过* 从users表中查询所有列的数据</span><br><span class="hljs-comment">-- select * from users;</span><br><span class="hljs-comment">-- 从users 表中查询指定的 username和password 列的数据</span><br><span class="hljs-comment">-- select username,password from users;</span><br>插入数据 <span class="hljs-keyword">insert</span><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> 表名称(列<span class="hljs-number">1</span>, 列<span class="hljs-number">2</span>, ...) <span class="hljs-keyword">VALUES</span>(值<span class="hljs-number">1</span>, 值<span class="hljs-number">2</span>, ...)<br><span class="hljs-comment">-- 向users表中插入一条数据 username是tom password是admin123</span><br><span class="hljs-comment">-- insert into users (username,password) values(&#x27;tom&#x27;,&#x27;admin123&#x27;);</span><br>更新数据 <span class="hljs-keyword">update</span><br><span class="hljs-keyword">UPDATE</span> 表名称 <span class="hljs-keyword">SET</span> 列<span class="hljs-number">1</span><span class="hljs-operator">=</span>值<span class="hljs-number">1</span>, 列<span class="hljs-number">2</span><span class="hljs-operator">=</span>值<span class="hljs-number">2</span> <span class="hljs-keyword">WHERE</span> 列名称<span class="hljs-operator">=</span>值<br><span class="hljs-comment">-- 修改 username 为张三 的这条数据的密码， 修改为 abcdef</span><br><span class="hljs-comment">-- update users set password=&#x27;abcdef&#x27; where username = &#x27;张三&#x27;;</span><br><span class="hljs-comment">-- status的值是布尔值 所以不用加引号  varchar字符类型 要加&#x27;&#x27;</span><br><span class="hljs-comment">-- update users set password=&#x27;hahaha&#x27;,status=1 where username = &#x27;李四&#x27;;</span><br>删除数据 <span class="hljs-keyword">delete</span><br><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> 表名称 <span class="hljs-keyword">WHERE</span> 列名称<span class="hljs-operator">=</span>值<br><span class="hljs-comment">-- 删除id为3的用户</span><br><span class="hljs-comment">-- delete from users where id=3;</span><br><br></code></pre></td></tr></table></figure>
+<h2 id="二、where-子句"><a href="#二、where-子句" class="headerlink" title="二、where 子句"></a>二、where 子句</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs txt">WHERE 子句的作用<br>      如果需要有条件的从表中选取数据, 可以使用 WHERE 子句添加到 SQL 语句的末尾<br>    例如:<br>      `SELECT * FROM 表名称 WHERE 列名称 运算符 值`<br><br>    二、常见的运算符<br>      (1) &gt; 和 &gt;=<br>      (2) &lt; 和 &lt;=<br>      (3) != 或 &lt;&gt;   &lt;&gt;不方便记忆 我们用老的 != 就行<br>      (4) =<br>      (5) BETWEEN   between 2 and 8   2到8  包括2 8<br>      (6) LIKE   like &#x27;%123%&#x27;   只要包含123<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">--id大于3</span><br><span class="hljs-comment">-- select * from users where id&gt;3;</span><br><span class="hljs-comment">--id不等于2</span><br><span class="hljs-comment">-- select * from users where id !=2;</span><br><span class="hljs-comment">--password中包含34的数据</span><br><span class="hljs-comment">-- select * from users where password like&#x27;%34%&#x27;;</span><br><span class="hljs-comment">--id 2到5的数据</span><br><span class="hljs-comment">-- select * from users where id between 2 and 5;</span><br></code></pre></td></tr></table></figure>
+<h2 id="三、and-和-or-运算符"><a href="#三、and-和-or-运算符" class="headerlink" title="三、and 和 or 运算符"></a>三、and 和 or 运算符</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、AND 和 OR 运算符<br>   可以在 WHERE 子句中把多个条件结合起来, AND 表示并且, OR 表示或者的意思<br><br>   补充： and和or可以写多个 如 条件1 and 条件2 and 条件3.....<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询表中status=1 且id&gt;=4的用户  虽然没有符合的数据 但是这条指令是正确的 并不会报错</span><br><span class="hljs-comment">-- select * from users where status=1 and id&gt;=4;</span><br><span class="hljs-comment">-- 查询表中status=1 或 id&gt;=4的用户</span><br><span class="hljs-comment">-- select * from users where status=1 or id&gt;=4;</span><br></code></pre></td></tr></table></figure>
+<h2 id="四、order-by-子句"><a href="#四、order-by-子句" class="headerlink" title="四、order by 子句"></a>四、order by 子句</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、使用 ORDER BY 子句对结果进行排序<br>  默认的排序方式为升序 ASC 如果使用降序可以添加 DESC 关键字<br>  order by ... asc      order by ... desc   这里为了方便交互 最好升序的时候也写上asc<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询表中所有用户 根据status升序来排列</span><br><span class="hljs-comment">-- select * from users order by status asc</span><br><span class="hljs-comment">-- 查询表中所有用户 根据id 降序来排列</span><br><span class="hljs-comment">-- select * from users order by id desc</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">二、多重排序规则  用,号隔开<br>   `SELECT 列名称 FROM 表名称 ORDER BY 列名称 [排序规则],  列名称 [排序规则]`<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询表中所有用户 先根据status 降序排列,再根据id进行升序排列</span><br><span class="hljs-comment">-- select * from users order by status desc,id asc</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">三、注意<br>  同时使用 ORDER BY 和 WHERE子句时, 应该让 ORDER BY 位于 WHERE 之后, 否则将会产生错误(先用where选取数据后 再用order by来进行排列)<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 查询表中id&gt;3的用户并且根据id 降序来排列</span><br><span class="hljs-comment">-- select * from users where id&gt;3 order by id desc</span><br></code></pre></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -283,7 +246,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JS%E5%9F%BA%E7%A1%80/">JS基础</a>
+                      <a class="hover-with-bg" href="/categories/Node-js/">Node.js</a>
                     
                   </div>
                 
@@ -304,18 +267,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC02%E5%A4%A9%E7%AC%94%E8%AE%B0/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JS 基础第二天</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC04%E5%A4%A9%E7%AC%94%E8%AE%B0/">
-                        <span class="hidden-mobile">JS 基础第四天</span>
+                      <a href="/2021/02/21/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">
+                        <span class="hidden-mobile">Node.js部分npm命令</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
