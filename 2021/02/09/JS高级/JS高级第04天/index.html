@@ -1,0 +1,553 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>JS 高级第四天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JS 高级第四天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 00:00" pubdate>
+        2021年2月9日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS 高级第四天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="JS高级第04天"><a href="#JS高级第04天" class="headerlink" title="JS高级第04天"></a>JS高级第04天</h1><h2 id="1-正则表达式概述"><a href="#1-正则表达式概述" class="headerlink" title="1.正则表达式概述"></a>1.正则表达式概述</h2><h3 id="1-1什么是正则表达式"><a href="#1-1什么是正则表达式" class="headerlink" title="1.1什么是正则表达式"></a>1.1什么是正则表达式</h3><p>正则表达式（ Regular Expression ）是用于匹配字符串中字符组合的模式。在JavaScript中，正则表达式也是对象。</p>
+<p>正则表通常被用来检索、替换那些符合某个模式（规则）的文本，例如验证表单：用户名表单只能输入英文字母、数字或者下划线， 昵称输入框中可以输入中文(匹配)。此外，正则表达式还常用于过滤掉页面内容中的一些敏感词(替换)，或从字符串中获取我们想要的特定部分(提取)等 。</p>
+<p>其他语言也会使用正则表达式，本阶段我们主要是利用JavaScript 正则表达式完成表单验证。</p>
+<h3 id="1-2-正则表达式的特点"><a href="#1-2-正则表达式的特点" class="headerlink" title="1.2 正则表达式的特点"></a>1.2 正则表达式的特点</h3><ol>
+<li>灵活性、逻辑性和功能性非常的强。</li>
+<li>可以迅速地用极简单的方式达到字符串的复杂控制。</li>
+<li>对于刚接触的人来说，比较晦涩难懂。比如：^\w+([-+.]\w+)*@\w+([-.]\w+)<em>.\w+([-.]\w+)</em>$</li>
+<li>实际开发,一般都是直接复制写好的正则表达式. 但是要求会使用正则表达式并且根据实际情况修改正则表达式.   比如用户名:   /^[a-z0-9_-]{3,16}$/</li>
+</ol>
+<h2 id="2-正则表达式在js中的使用"><a href="#2-正则表达式在js中的使用" class="headerlink" title="2.正则表达式在js中的使用"></a>2.正则表达式在js中的使用</h2><h3 id="2-1正则表达式的创建"><a href="#2-1正则表达式的创建" class="headerlink" title="2.1正则表达式的创建"></a>2.1正则表达式的创建</h3><p>在 JavaScript 中，可以通过两种方式创建一个正则表达式。</p>
+<p>方式一：通过调用RegExp对象的构造函数创建 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> regexp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-regexp">/123/</span>);<br><span class="hljs-built_in">console</span>.log(regexp);<br></code></pre></td></tr></table></figure>
+<p>方式二：利用字面量创建 正则表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> rg = <span class="hljs-regexp">/123/</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="2-2测试正则表达式"><a href="#2-2测试正则表达式" class="headerlink" title="2.2测试正则表达式"></a>2.2测试正则表达式</h3><p>test() 正则对象方法，用于检测字符串是否符合该规则，该对象会返回 true 或 false，其参数是测试字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> rg = <span class="hljs-regexp">/123/</span>;<br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-number">123</span>));<span class="hljs-comment">//匹配字符中是否出现123  出现结果为true</span><br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;abc&#x27;</span>));<span class="hljs-comment">//匹配字符中是否出现123 未出现结果为false</span><br></code></pre></td></tr></table></figure>
+<p><img src="/images/img4.png" srcset="/img/loading.gif"></p>
+<h2 id="3-正则表达式中的特殊字符"><a href="#3-正则表达式中的特殊字符" class="headerlink" title="3.正则表达式中的特殊字符"></a>3.正则表达式中的特殊字符</h2><h3 id="3-1正则表达式的组成"><a href="#3-1正则表达式的组成" class="headerlink" title="3.1正则表达式的组成"></a>3.1正则表达式的组成</h3><p>一个正则表达式可以由简单的字符构成，比如 /abc/，也可以是简单和特殊字符的组合，比如 /ab*c/ 。其中特殊字符也被称为元字符，在正则表达式中是具有特殊意义的专用符号，如 ^ 、$ 、+ 等。</p>
+<p>特殊字符非常多，可以参考： </p>
+<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions">MDN</a></p>
+<p>jQuery 手册：正则表达式部分</p>
+<p>[正则测试工具]( &lt;<a target="_blank" rel="noopener" href="http://tool.oschina.net/regex">http://tool.oschina.net/regex</a>)</p>
+<h3 id="3-2边界符"><a href="#3-2边界符" class="headerlink" title="3.2边界符"></a>3.2边界符</h3><p>正则表达式中的边界符（位置符）用来提示字符所处的位置，主要有两个字符</p>
+<table>
+<thead>
+<tr>
+<th>边界符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>^</td>
+<td>表示匹配行首的文本（以谁开始）</td>
+</tr>
+<tr>
+<td>$</td>
+<td>表示匹配行尾的文本（以谁结束）</td>
+</tr>
+</tbody></table>
+<p>如果 ^和 $ 在一起，表示必须是精确匹配。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> rg = <span class="hljs-regexp">/abc/</span>; <span class="hljs-comment">// 正则表达式里面不需要加引号 不管是数字型还是字符串型</span><br><span class="hljs-comment">// /abc/ 只要包含有abc这个字符串返回的都是true</span><br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;abc&#x27;</span>));<br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;abcd&#x27;</span>));<br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;aabcd&#x27;</span>));<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;---------------------------&#x27;</span>);<br><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^abc/</span>;<br><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;abc&#x27;</span>)); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;abcd&#x27;</span>)); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;aabcd&#x27;</span>)); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;---------------------------&#x27;</span>);<br><span class="hljs-keyword">var</span> reg1 = <span class="hljs-regexp">/^abc$/</span>; <span class="hljs-comment">// 精确匹配 要求必须是 abc字符串才符合规范</span><br><span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;abc&#x27;</span>)); <span class="hljs-comment">// true</span><br><span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;abcd&#x27;</span>)); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;aabcd&#x27;</span>)); <span class="hljs-comment">// false</span><br><span class="hljs-built_in">console</span>.log(reg1.test(<span class="hljs-string">&#x27;abcabc&#x27;</span>)); <span class="hljs-comment">// false</span><br></code></pre></td></tr></table></figure>
+<h3 id="3-3字符类"><a href="#3-3字符类" class="headerlink" title="3.3字符类"></a>3.3字符类</h3><p>字符类表示有一系列字符可供选择，只要匹配其中一个就可以了。所有可供选择的字符都放在方括号内。</p>
+<h4 id="3-3-1-方括号"><a href="#3-3-1-方括号" class="headerlink" title="3.3.1 [] 方括号"></a>3.3.1 [] 方括号</h4><p>表示有一系列字符可供选择，只要匹配其中一个就可以了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> rg = <span class="hljs-regexp">/[abc]/</span>; <span class="hljs-comment">// 只要包含有a 或者 包含有b 或者包含有c 都返回为true</span><br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;andy&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;baby&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;color&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(rg.test(<span class="hljs-string">&#x27;red&#x27;</span>));<span class="hljs-comment">//false</span><br><span class="hljs-keyword">var</span> rg1 = <span class="hljs-regexp">/^[abc]$/</span>; <span class="hljs-comment">// 三选一 只有是a 或者是 b  或者是c 这三个字母才返回 true</span><br><span class="hljs-built_in">console</span>.log(rg1.test(<span class="hljs-string">&#x27;aa&#x27;</span>));<span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.log(rg1.test(<span class="hljs-string">&#x27;a&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(rg1.test(<span class="hljs-string">&#x27;b&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(rg1.test(<span class="hljs-string">&#x27;c&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(rg1.test(<span class="hljs-string">&#x27;abc&#x27;</span>));<span class="hljs-comment">//true</span><br>----------------------------------------------------------------------------------<br><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^[a-z]$/</span> <span class="hljs-comment">//26个英文字母任何一个字母返回 true  - 表示的是a 到z 的范围  </span><br><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;a&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;z&#x27;</span>));<span class="hljs-comment">//true</span><br><span class="hljs-built_in">console</span>.log(reg.test(<span class="hljs-string">&#x27;A&#x27;</span>));<span class="hljs-comment">//false</span><br>-----------------------------------------------------------------------------------<br><span class="hljs-comment">//字符组合</span><br><span class="hljs-keyword">var</span> reg1 = <span class="hljs-regexp">/^[a-zA-Z0-9]$/</span>; <span class="hljs-comment">// 26个英文字母(大写和小写都可以)任何一个字母返回 true  </span><br>------------------------------------------------------------------------------------<br><span class="hljs-comment">//取反 方括号内部加上 ^ 表示取反，只要包含方括号内的字符，都返回 false 。</span><br><span class="hljs-keyword">var</span> reg2 = <span class="hljs-regexp">/^[^a-zA-Z0-9]$/</span>;<br><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;a&#x27;</span>));<span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;B&#x27;</span>));<span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-number">8</span>));<span class="hljs-comment">//false</span><br><span class="hljs-built_in">console</span>.log(reg2.test(<span class="hljs-string">&#x27;!&#x27;</span>));<span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure>
+<h4 id="3-3-2量词符"><a href="#3-3-2量词符" class="headerlink" title="3.3.2量词符"></a>3.3.2量词符</h4><p>量词符用来设定某个模式出现的次数。</p>
+<table>
+<thead>
+<tr>
+<th>量词</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>重复0次或更多次</td>
+</tr>
+<tr>
+<td>+</td>
+<td>重复1次或更多次</td>
+</tr>
+<tr>
+<td>?</td>
+<td>重复0次或1次</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>重复n次</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>重复n次或更多次</td>
+</tr>
+<tr>
+<td>{n,m}</td>
+<td>重复n到m次</td>
+</tr>
+</tbody></table>
+<h4 id="3-3-3用户名表单验证"><a href="#3-3-3用户名表单验证" class="headerlink" title="3.3.3用户名表单验证"></a>3.3.3用户名表单验证</h4><p>功能需求:</p>
+<ol>
+<li>如果用户名输入合法, 则后面提示信息为:  用户名合法,并且颜色为绿色</li>
+<li>如果用户名输入不合法, 则后面提示信息为:  用户名不符合规范, 并且颜色为红色</li>
+</ol>
+<p><img src="/images/img2.png" srcset="/img/loading.gif"></p>
+<p><img src="/images/img1.png" srcset="/img/loading.gif"></p>
+<p>分析:</p>
+<ol>
+<li>用户名只能为英文字母,数字,下划线或者短横线组成, 并且用户名长度为6~16位.</li>
+<li>首先准备好这种正则表达式模式/$[a-zA-Z0-9-_]{6,16}^/</li>
+<li>当表单失去焦点就开始验证. </li>
+<li>如果符合正则规范, 则让后面的span标签添加 right类.</li>
+<li>如果不符合正则规范, 则让后面的span标签添加 wrong类.</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;input type=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;uname&quot;</span>&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>请输入用户名<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br> &lt;script&gt;<br> <span class="hljs-comment">//  量词是设定某个模式出现的次数</span><br> <span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^[a-zA-Z0-9_-]&#123;6,16&#125;$/</span>; <span class="hljs-comment">// 这个模式用户只能输入英文字母 数字 下划线 中划线</span><br> <span class="hljs-keyword">var</span> uname = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;.uname&#x27;</span>);<br> <span class="hljs-keyword">var</span> span = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;span&#x27;</span>);<br> uname.onblur = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>   <span class="hljs-keyword">if</span> (reg.test(<span class="hljs-built_in">this</span>.value)) &#123;<br>   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;正确的&#x27;</span>);<br>   span.className = <span class="hljs-string">&#x27;right&#x27;</span>;<br>   span.innerHTML = <span class="hljs-string">&#x27;用户名格式输入正确&#x27;</span>;<br>   &#125; <span class="hljs-keyword">else</span> &#123;<br>   <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;错误的&#x27;</span>);<br>   span.className = <span class="hljs-string">&#x27;wrong&#x27;</span>;<br>   span.innerHTML = <span class="hljs-string">&#x27;用户名格式输入不正确&#x27;</span>;<br>   &#125;<br> &#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<h4 id="3-3-4-括号总结"><a href="#3-3-4-括号总结" class="headerlink" title="3.3.4 括号总结"></a>3.3.4 括号总结</h4><p>1.大括号  量词符.  里面表示重复次数</p>
+<p>2.中括号 字符集合。匹配方括号中的任意字符. </p>
+<p>3.小括号表示优先级</p>
+<p><a target="_blank" rel="noopener" href="https://c.runoob.com/">正则表达式在线测试</a></p>
+<h3 id="3-4预定义类"><a href="#3-4预定义类" class="headerlink" title="3.4预定义类"></a>3.4预定义类</h3><p>预定义类指的是某些常见模式的简写方式.</p>
+<p><img src="/images/img3.png" srcset="/img/loading.gif"></p>
+<p><strong>案例:验证座机号码</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^\d&#123;3&#125;-\d&#123;8&#125;|\d&#123;4&#125;-\d&#123;7&#125;$/</span>;<br><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^\d&#123;3,4&#125;-\d&#123;7,8&#125;$/</span>;<br></code></pre></td></tr></table></figure>
+<p><strong>表单验证案例</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//手机号验证:/^1[3|4|5|7|8][0-9]&#123;9&#125;$/;</span><br><span class="hljs-comment">//验证通过与不通过更换元素的类名与元素中的内容</span><br> <span class="hljs-keyword">if</span> (reg.test(<span class="hljs-built_in">this</span>.value)) &#123;<br>    <span class="hljs-comment">// console.log(&#x27;正确的&#x27;);</span><br>    <span class="hljs-built_in">this</span>.nextElementSibling.className = <span class="hljs-string">&#x27;success&#x27;</span>;<br>    <span class="hljs-built_in">this</span>.nextElementSibling.innerHTML = <span class="hljs-string">&#x27;&lt;i class=&quot;success_icon&quot;&gt;&lt;/i&gt; 恭喜您输入正确&#x27;</span>;<br>   &#125; <span class="hljs-keyword">else</span> &#123;<br>       <span class="hljs-comment">// console.log(&#x27;不正确&#x27;);</span><br>      <span class="hljs-built_in">this</span>.nextElementSibling.className = <span class="hljs-string">&#x27;error&#x27;</span>;<br>      <span class="hljs-built_in">this</span>.nextElementSibling.innerHTML = <span class="hljs-string">&#x27;&lt;i class=&quot;error_icon&quot;&gt;&lt;/i&gt;格式不正确,请从新输入 &#x27;</span>;<br> &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//QQ号验证: /^[1-9]\d&#123;4,&#125;$/; </span><br><span class="hljs-comment">//昵称验证:/^[\u4e00-\u9fa5]&#123;2,8&#125;$/</span><br><span class="hljs-comment">//验证通过与不通过更换元素的类名与元素中的内容 ,将上一步的匹配代码进行封装,多次调用即可</span><br> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">regexp</span>(<span class="hljs-params">ele, reg</span>) </span>&#123;<br>    ele.onblur = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>      <span class="hljs-keyword">if</span> (reg.test(<span class="hljs-built_in">this</span>.value)) &#123;<br>        <span class="hljs-comment">// console.log(&#x27;正确的&#x27;);</span><br>        <span class="hljs-built_in">this</span>.nextElementSibling.className = <span class="hljs-string">&#x27;success&#x27;</span>;<br>        <span class="hljs-built_in">this</span>.nextElementSibling.innerHTML = <span class="hljs-string">&#x27;&lt;i class=&quot;success_icon&quot;&gt;&lt;/i&gt; 恭喜您输入正确&#x27;</span>;<br>   &#125; <span class="hljs-keyword">else</span> &#123;<br>     <span class="hljs-comment">// console.log(&#x27;不正确&#x27;);</span><br>     <span class="hljs-built_in">this</span>.nextElementSibling.className = <span class="hljs-string">&#x27;error&#x27;</span>;<br>     <span class="hljs-built_in">this</span>.nextElementSibling.innerHTML = <span class="hljs-string">&#x27;&lt;i class=&quot;error_icon&quot;&gt;&lt;/i&gt; 格式不正确,请从新输入 &#x27;</span>;<br>            &#125;<br>        &#125;<br> &#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//密码验证:/^[a-zA-Z0-9_-]&#123;6,16&#125;$/</span><br><span class="hljs-comment">//再次输入密码只需匹配与上次输入的密码值 是否一致</span><br></code></pre></td></tr></table></figure>
+<h3 id="3-5正则替换replace"><a href="#3-5正则替换replace" class="headerlink" title="3.5正则替换replace"></a>3.5正则替换replace</h3><p>replace() 方法可以实现替换字符串操作，用来替换的参数可以是一个字符串或是一个正则表达式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> str = <span class="hljs-string">&#x27;andy和red&#x27;</span>;<br><span class="hljs-keyword">var</span> newStr = str.replace(<span class="hljs-string">&#x27;andy&#x27;</span>, <span class="hljs-string">&#x27;baby&#x27;</span>);<br><span class="hljs-built_in">console</span>.log(newStr)<span class="hljs-comment">//baby和red</span><br><span class="hljs-comment">//等同于 此处的andy可以写在正则表达式内</span><br><span class="hljs-keyword">var</span> newStr2 = str.replace(<span class="hljs-regexp">/andy/</span>, <span class="hljs-string">&#x27;baby&#x27;</span>);<br><span class="hljs-built_in">console</span>.log(newStr2)<span class="hljs-comment">//baby和red</span><br><span class="hljs-comment">//全部替换</span><br><span class="hljs-keyword">var</span> str = <span class="hljs-string">&#x27;abcabc&#x27;</span><br><span class="hljs-keyword">var</span> nStr = str.replace(<span class="hljs-regexp">/a/</span>,<span class="hljs-string">&#x27;哈哈&#x27;</span>)<br><span class="hljs-built_in">console</span>.log(nStr) <span class="hljs-comment">//哈哈bcabc</span><br><span class="hljs-comment">//全部替换g</span><br><span class="hljs-keyword">var</span> nStr = str.replace(<span class="hljs-regexp">/a/</span>a,<span class="hljs-string">&#x27;哈哈&#x27;</span>)<br><span class="hljs-built_in">console</span>.log(nStr) <span class="hljs-comment">//哈哈bc哈哈bc</span><br><span class="hljs-comment">//忽略大小写i</span><br><span class="hljs-keyword">var</span> str = <span class="hljs-string">&#x27;aAbcAba&#x27;</span>;<br><span class="hljs-keyword">var</span> newStr = str.replace(<span class="hljs-regexp">/a/gi</span>,<span class="hljs-string">&#x27;哈哈&#x27;</span>)<span class="hljs-comment">//&quot;哈哈哈哈bc哈哈b哈哈&quot;</span><br></code></pre></td></tr></table></figure>
+<p><strong>案例:过滤敏感词汇</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;textarea name=<span class="hljs-string">&quot;&quot;</span> id=<span class="hljs-string">&quot;message&quot;</span>&gt;&lt;<span class="hljs-regexp">/textarea&gt; &lt;button&gt;提交&lt;/</span>button&gt;<br>&lt;div&gt;&lt;/div&gt;<br>&lt;script&gt;<br>    <span class="hljs-keyword">var</span> text = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;textarea&#x27;</span>);<br>    <span class="hljs-keyword">var</span> btn = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;button&#x27;</span>);<br>    <span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&#x27;div&#x27;</span>);<br>    btn.onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;<br>    	div.innerHTML = text.value.replace(<span class="hljs-regexp">/激情|gay/g</span>, <span class="hljs-string">&#x27;**&#x27;</span>);<br>    &#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS 高级第二天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7/JS%E9%AB%98%E7%BA%A7%E7%AC%AC05%E5%A4%A9/">
+                        <span class="hidden-mobile">JS 高级第五天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

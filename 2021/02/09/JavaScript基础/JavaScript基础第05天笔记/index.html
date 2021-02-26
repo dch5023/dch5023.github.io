@@ -1,0 +1,532 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>JS 基础第五天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JS 基础第五天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 00:00" pubdate>
+        2021年2月9日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS 基础第五天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="JS第五天"><a href="#JS第五天" class="headerlink" title="JS第五天"></a>JS第五天</h1><h2 id="一、arguments使用"><a href="#一、arguments使用" class="headerlink" title="一、arguments使用"></a>一、arguments使用</h2><p>当不确定有多少个参数传递的时候，可以用 arguments 来获取。JavaScript 中，arguments实际上它是当前函数的一个内置对象。</p>
+<p>具有以下特点：</p>
+<ul>
+<li>是一个伪数组</li>
+<li>具有数组length属性</li>
+<li>可以按照索引的方式进行存贮</li>
+<li>没有真正数组 的一些方法，如：push、pop</li>
+<li>只有函数有arguments对象，每个函数都内置好了arguments</li>
+</ul>
+<h2 id="二、函数声明"><a href="#二、函数声明" class="headerlink" title="二、函数声明"></a>二、函数声明</h2><h3 id="1、自定义函数命名方式（命名函数）"><a href="#1、自定义函数命名方式（命名函数）" class="headerlink" title="1、自定义函数命名方式（命名函数）"></a>1、自定义函数命名方式（命名函数）</h3><p>利用函数关键字function自定义函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span>  函数名 （）｛...｝</span><br><span class="hljs-function">函数名（）；//调用，可以放在函数前或后</span><br></code></pre></td></tr></table></figure>
+<h3 id="2、函数表达式（匿名函数）"><a href="#2、函数表达式（匿名函数）" class="headerlink" title="2、函数表达式（匿名函数）"></a>2、函数表达式（匿名函数）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> 变量名 = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;...&#125;;<br>变量名（）；<span class="hljs-comment">//调用，必须放在函数体下面</span><br></code></pre></td></tr></table></figure>
+<h2 id="三、作用域"><a href="#三、作用域" class="headerlink" title="三、作用域"></a>三、作用域</h2><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><ul>
+<li>限定这个变量名字的可用性的代码范围就是这个名字的作用域。</li>
+<li>提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。</li>
+</ul>
+<h3 id="2、全局作用域"><a href="#2、全局作用域" class="headerlink" title="2、全局作用域"></a>2、全局作用域</h3><p>作用于所有代码执行的环境(整个 script 标签内部)或者一个独立的 js 文件。</p>
+<h3 id="3、局部作用域"><a href="#3、局部作用域" class="headerlink" title="3、局部作用域"></a>3、局部作用域</h3><p>作用于函数内的代码环境，就是局部作用域。</p>
+<h3 id="4、块级作用域"><a href="#4、块级作用域" class="headerlink" title="4、块级作用域"></a>4、块级作用域</h3><p>js中没有块级作用域</p>
+<h2 id="四、变量"><a href="#四、变量" class="headerlink" title="四、变量"></a>四、变量</h2><h3 id="1、全局变量"><a href="#1、全局变量" class="headerlink" title="1、全局变量"></a>1、全局变量</h3><p>在全局作用域下声明的变量叫做全局变量（在函数外部定义的变量）。</p>
+<ul>
+<li><strong>注意</strong>：如果在函数内部，没有声明直接赋值的变量也属于全局变量</li>
+<li>只有在浏览器关闭的上海才会销毁，比较占内存</li>
+<li>全局变量在代码的任何位置都可以使用</li>
+</ul>
+<h3 id="2、局部变量"><a href="#2、局部变量" class="headerlink" title="2、局部变量"></a>2、局部变量</h3><p>在局部作用域下声明的变量叫做局部变量（在函数内部定义的变量）</p>
+<ul>
+<li>只能在函数内部使用</li>
+<li>函数内部声明的变量就是局部变量</li>
+<li>函数的形参实际上就是局部变量</li>
+<li>当我们程序执行完毕就会销毁</li>
+</ul>
+<h2 id="五、作用域链"><a href="#五、作用域链" class="headerlink" title="五、作用域链"></a>五、作用域链</h2><h3 id="1、定义-1"><a href="#1、定义-1" class="headerlink" title="1、定义"></a>1、定义</h3><p>只要是代码都一个作用域中，写在函数内部的局部作用域，未写在任何函数内部即在全局作用域中；</p>
+<p>如果函数中还有函数，那么在这个作用域中就又可以诞生一个作用域；</p>
+<p>根据在**[内部函数可以访问外部函数变量]**的这种机制，用链式查找决定哪些数据能被内部函数访问，就称作作用域链</p>
+<h3 id="2、作用域链："><a href="#2、作用域链：" class="headerlink" title="2、作用域链："></a>2、作用域链：</h3><p>采取就近原则的方式来查找变量最终的值。</p>
+<h2 id="六、预解析"><a href="#六、预解析" class="headerlink" title="六、预解析"></a>六、预解析</h2><h3 id="1、js引擎如何执行-js代码"><a href="#1、js引擎如何执行-js代码" class="headerlink" title="1、js引擎如何执行 js代码"></a>1、js引擎如何执行 js代码</h3><p><strong>先进行语法校验，再进行预解析，最后执行代码</strong></p>
+<ul>
+<li><p>预解析：在当前作用域下, JS 代码执行之前，浏览器会默认把带有 var 和 function 声明的变量在内存中进行提前声明或者定义。</p>
+</li>
+<li><p>代码执行： 从上到下执行JS语句。</p>
+<p><strong>预解析会把变量和函数的声明在代码执行之前执行完成。</strong></p>
+</li>
+</ul>
+<h4 id="1、语法校验阶段报错"><a href="#1、语法校验阶段报错" class="headerlink" title="1、语法校验阶段报错:"></a>1、语法校验阶段报错:</h4><p>整个js 文件都不会运行 (了解)</p>
+<h4 id="2、代码执行阶段报错"><a href="#2、代码执行阶段报错" class="headerlink" title="2、代码执行阶段报错:"></a>2、代码执行阶段报错:</h4><p>从当前位置开始下面的js 都不会执行 (了解)</p>
+<h3 id="2、变量预解析"><a href="#2、变量预解析" class="headerlink" title="2、变量预解析"></a>2、变量预解析</h3><p>变量提升（变量预解析）： 变量的声明会被提升到当前作用域的最上面，变量的赋值不会提升。</p>
+<h3 id="3、函数预解析"><a href="#3、函数预解析" class="headerlink" title="3、函数预解析"></a>3、函数预解析</h3><p>函数提升： 函数的声明会被提升到当前作用域的最上面，但是不会调用函数。</p>
+<p>函数表达式提升？ <strong>不存在函数提升，只存在变量提升</strong></p>
+<p>（拓展）函数和变量同时提升: </p>
+<p>​    // 函数声明的优先级高于变量声明，但不高于变量赋值</p>
+<h2 id="七、对象（object）"><a href="#七、对象（object）" class="headerlink" title="七、对象（object）"></a>七、对象（object）</h2><h3 id="1、定义-2"><a href="#1、定义-2" class="headerlink" title="1、定义"></a>1、定义</h3><p>对象是一组无无序的相关属性和方法的集合，所有的事物都是对象</p>
+<ul>
+<li>属性：事物的特征，在对象中用属性来表示（常用名词）</li>
+<li>方法：事物的行为，在对象中用方法来表示（常用动词）</li>
+</ul>
+<h3 id="2、创建对象的三种方法"><a href="#2、创建对象的三种方法" class="headerlink" title="2、创建对象的三种方法"></a>2、创建对象的三种方法</h3><h4 id="1、字面量创建对象"><a href="#1、字面量创建对象" class="headerlink" title="1、字面量创建对象"></a>1、字面量创建对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> 变量名 = ｛<br><br>属性<span class="hljs-number">1</span>：<span class="hljs-string">&#x27;&#x27;</span>,<br>属性<span class="hljs-number">2</span>：<span class="hljs-string">&#x27;&#x27;</span>,<br>方法名：<span class="hljs-function"><span class="hljs-keyword">function</span>（）｛...｝；//方法冒号后面跟的是匿名函数</span><br><span class="hljs-function">｝//注意：属性之间要用逗号隔开</span><br></code></pre></td></tr></table></figure>
+<p>调用对象属性：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">（<span class="hljs-number">1</span>）<span class="hljs-built_in">console</span>.log(变量名.属性<span class="hljs-number">1</span>)<br><br>（<span class="hljs-number">2</span>）<span class="hljs-built_in">console</span>.log(变量名[<span class="hljs-string">&#x27;属性1&#x27;</span>])<br></code></pre></td></tr></table></figure>
+<p>调用对象方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">变量名.方法名；<br></code></pre></td></tr></table></figure>
+<h4 id="2、利用new-Object-创建对象"><a href="#2、利用new-Object-创建对象" class="headerlink" title="2、利用new Object 创建对象"></a>2、利用new Object 创建对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> andy = <span class="hljs-keyword">new</span> Obect();<br></code></pre></td></tr></table></figure>
+<p>添加对象属性使用的格式：对象.属性 =  值;</p>
+<h4 id="3、利用构造函数创建对象"><a href="#3、利用构造函数创建对象" class="headerlink" title="3、利用构造函数创建对象"></a>3、利用构造函数创建对象</h4><p>格式：</p>
+<pre><code> function 构造函数名(形参1,形参2,形参3) &#123;
+ this.属性名1 = 参数1;
+ this.属性名2 = 参数2;
+ this.属性名3 = 参数3;
+ this.方法名 = 函数体;
+ &#125;
+</code></pre>
+<p>调用格式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> 构造函数名(实参<span class="hljs-number">1</span>，实参<span class="hljs-number">2</span>，实参<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>构造函数约定<strong>首字母大写</strong>。</li>
+<li>函数内的属性和方法前面需要添加 <strong>this</strong> ，表示当前对象的属性和方法。</li>
+<li>构造函数中<strong>不需要 return 返回结果</strong>。</li>
+<li>当我们创建对象的时候，<strong>必须用 new 来调用构造函数</strong>。</li>
+</ul>
+<h3 id="3、new关键字执行过程★★★★★"><a href="#3、new关键字执行过程★★★★★" class="headerlink" title="3、new关键字执行过程★★★★★"></a>3、<strong>new关键字执行过程★★★★★</strong></h3><ol>
+<li>首先在内存中新增一块内存空间，存放将要创建的对象</li>
+<li>用this关键字指向内存空间</li>
+<li>this添加属性方法</li>
+<li>添加完成后，返回这个this，完成创建对象</li>
+</ol>
+<h3 id="4、遍历对象"><a href="#4、遍历对象" class="headerlink" title="4、遍历对象"></a>4、遍历对象</h3><p>for (变量 in 对象名字) {</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">for</span> (变量 <span class="hljs-keyword">in</span> 对象名字) &#123;<br><span class="hljs-comment">// 在此执行代码</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> k <span class="hljs-keyword">in</span> obj) &#123;<br><span class="hljs-built_in">console</span>.log(k);      <span class="hljs-comment">// 这里的 k 是属性名</span><br><span class="hljs-built_in">console</span>.log(obj[k]); <span class="hljs-comment">// 这里的 obj[k] 是属性值</span><br>&#125;<br></code></pre></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JS%E5%9F%BA%E7%A1%80/">JS基础</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC03%E5%A4%A9%E7%AC%94%E8%AE%B0/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JS 基础第三天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/JavaScript%E5%9F%BA%E7%A1%80/JavaScript%E5%9F%BA%E7%A1%80%E7%AC%AC02%E5%A4%A9%E7%AC%94%E8%AE%B0/">
+                        <span class="hidden-mobile">JS 基础第二天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

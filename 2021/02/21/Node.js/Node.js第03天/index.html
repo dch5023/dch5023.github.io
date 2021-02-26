@@ -1,0 +1,469 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>Node.js第三天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Node.js第三天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-21 00:00" pubdate>
+        2021年2月21日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Node.js第三天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Node-js第三天"><a href="#Node-js第三天" class="headerlink" title="Node.js第三天"></a>Node.js第三天</h1><h2 id="一、包"><a href="#一、包" class="headerlink" title="一、包"></a>一、包</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、什么叫做包 (package)？ <br>      带有一个 package.json 文件的目录称为包, 用来描述多个模块之间互相依赖的关系, 通常第三方模块都是以一个<br>    包的形式存在, 又称为 &quot;第三方包&quot; <br><br>    二、包的来源<br>      通常我们直接使用第三方个人或团队开发出来的软件包, 进行免费下载和使用<br><br>    三、包管理器<br>      世界上有众多的第三方模块或包, Node.js 中使用了一款 npm 包管理器来管理所有的第三方包<br>      3.1 尝试在 npm 网站上搜索你想要的包：https://www.npmjs.com/<br>      3.2 在 npm 上下载包： https://registry.npmjs.org/<br>      <br>    四、npm (node package manage)<br>      下载, 更新, 卸载项目中的第三方包, 可以执行 npm -v 查看在自己电脑本机的 npm <br></code></pre></td></tr></table></figure>
+<h3 id="1-1-npm管理包的命令"><a href="#1-1-npm管理包的命令" class="headerlink" title="1.1 npm管理包的命令"></a>1.1 npm管理包的命令</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、下载一个指定的包 <br>      `npm i 包的具体名称` <br><br>    二、查看一个指定包<br>      `npm view 包的具体名称`<br><br>    三、下载指定版本的包<br>      `npm i 包的具体名称@版本号`<br>      第一个数字：大版本<br>      第二个数字：功能版本<br>      第三个数字：Bug修复版本<br>      提升规范：只要前面的数字增长了 后面的数字归零<br></code></pre></td></tr></table></figure>
+<h3 id="1-2-npm初体验"><a href="#1-2-npm初体验" class="headerlink" title="1.2 npm初体验"></a>1.2 npm初体验</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 使用时间插件包来格式化日期</span><br><span class="hljs-comment">// 1.下载moment包</span><br><span class="hljs-comment">// 2.引入第三方包    require(包名)</span><br><span class="hljs-comment">// 3.使用包（查文档）</span><br><br><span class="hljs-keyword">const</span> moment = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;moment&#x27;</span>);<br><span class="hljs-comment">// console.log(moment);</span><br><br><span class="hljs-comment">// moment(时间).format(&#x27;YYYY-MM-DD HH:mm:ss&#x27;)  不传时间默认为当前时间</span><br><span class="hljs-built_in">console</span>.log(moment().format(<span class="hljs-string">&#x27;YYYY-MM-DD HH:mm:ss&#x27;</span>));<br></code></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs txt">当我们在本地安装一个包后, 会多出两个文件: node_modules 和 package-lock.json <br>    1. node_modules 文件夹处在项目的根目录下, 用于存放安装的包<br>    2. package-lock.json 是程序包的锁文件, 里面详细记录了每个包的版本信息和依赖模块, 不需要我们手动编写<br><br>    注意: <br>      1. /node_modules/.bin 这个文件夹, 专门用来存放可执行文件<br>      2. package-lock.json 文件可以确保不同开发人员之间的下载的包版本保持一致, 减少版本错乱的风险<br></code></pre></td></tr></table></figure>
+<h3 id="1-3-包管理配置文件"><a href="#1-3-包管理配置文件" class="headerlink" title="1.3 包管理配置文件"></a>1.3 包管理配置文件</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、包管理配置文件 <br>      任何一个 npm 包必须具有 package.json 这样一个 JSON 格式的配置文件, 里面详细记录了包的名称，版本以及<br>    所依赖的其他包信息<br><br>    二、开发环境和部署环境<br>      开发环境又叫本地环境, 只对开发者本身提供服务, 要求比较随意, 错误调试都可以打开为了更方便的检测程序;<br>      部署环境又叫线上环境 或 生产环境, 正式对外进行提供服务; 要确保功能完备, 用户体验友好<br><br>    注意：<br>      通常在我们的项目根目录下也会使用 package.json 这个文件来记录项目的详细信息<br></code></pre></td></tr></table></figure>
+<h3 id="1-4-多人协作开发的问题"><a href="#1-4-多人协作开发的问题" class="headerlink" title="1.4 多人协作开发的问题"></a>1.4 多人协作开发的问题</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">多人合作一个项目时，第三方的包太多体积过大，node_modules 这个文件夹不易于团队成员之间进行共享，<br>  使用包管理配置文件来记录项目中所依赖的其他第三方包，这样团队成员之间只需要共享这个配置文件就可以了<br><br>    注意：node_modules 这个文件夹需要添加到 .gitignore 忽略文件中<br></code></pre></td></tr></table></figure>
+<h2 id="二、快速创建一个包管理配置文件"><a href="#二、快速创建一个包管理配置文件" class="headerlink" title="二、快速创建一个包管理配置文件"></a>二、快速创建一个包管理配置文件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">  在项目的根目录下执行 <span class="hljs-string">`npm init -y`</span> 命令<br><br>注意：<br>  <span class="hljs-number">1.</span> 项目目录不能使用中文命名, 不能包含空格<br>  <span class="hljs-number">2.</span> 创建了 package.json 文件后, 每次安装包的名称和版本都会记录在这个文件中，不需要手动修改<br></code></pre></td></tr></table></figure>
+<h3 id="2-1-dependencies配置项的作用"><a href="#2-1-dependencies配置项的作用" class="headerlink" title="2.1 dependencies配置项的作用"></a>2.1 dependencies配置项的作用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">一、package.json 配置文件中有两个关键的配置项: <br>      <span class="hljs-number">1.</span> dependencies: 在生产环境中所需要的软件包<br>      <span class="hljs-number">2.</span> devDependencies: 仅本地开发和测试所需要的软件包<br><br>    二、上述配置项的作用<br>      其他项目成员在执行 <span class="hljs-string">`npm install`</span> 或者<span class="hljs-string">`npm i`</span>命令时，会自动根据 package.json 文件中记录的包名称和版本信息<br>    全部进行下载<br></code></pre></td></tr></table></figure>
+<h3 id="2-2-npm-uninstall卸载指定的包"><a href="#2-2-npm-uninstall卸载指定的包" class="headerlink" title="2.2  npm uninstall卸载指定的包"></a>2.2  npm uninstall卸载指定的包</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、卸载指定的包 <br>     执行 `npm uninstall 包名称`<br><br>   注意：<br>     1. 当命令执行成功后，dependencies 配置项下的包会自动移除<br>     2. 卸载包的时候不需要指定版本号<br></code></pre></td></tr></table></figure>
+<h3 id="2-3-devDependencies-配置作用"><a href="#2-3-devDependencies-配置作用" class="headerlink" title="2.3  devDependencies 配置作用"></a>2.3  devDependencies 配置作用</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、devDependencies 配置作用 <br>     只在本地开发测试阶段需要用到的包，一般记录在 devDependencies 配置项中，后期在进行项目打包上线的<br>   时候，并不会把这些包携带到线上环境<br><br>   二、如何安装开发测试阶段用到的包<br>     执行命令 `npm i --save-dev 包名称@版本号` 或 `npm i -D 包名称@版本号`<br><br>     注意：使用npm i下载所有依赖包时devDependencies 内的包也会一并下载<br></code></pre></td></tr></table></figure>
+<h3 id="2-4-解决包下载速度慢的问题-换源"><a href="#2-4-解决包下载速度慢的问题-换源" class="headerlink" title="2.4 解决包下载速度慢的问题(换源)"></a>2.4 解决包下载速度慢的问题(换源)</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、npm 下载包的问题 <br>      当我们下载国外服务器上的包时，网速较慢容易下载失败， 可以考虑把下载包的服务器（源）进行更换<br><br>    二、更换国内的源<br>      在任意目录下执行： `npm config set registry=https://registry.npm.taobao.org`<br>      检查源有没有更换成功： `npm config get registry`<br>    <br>    补充：npm i -g cnpm先下载cnpm这个包  借助这个包提供了新的下载命令 `cnpm i -S 包名`<br><br>    三、使用 nrm 切换源<br>      在任意目录下依次执行：`npm i -g nrm` ==&gt; `nrm ls` ==&gt;`nrm use taobao`<br></code></pre></td></tr></table></figure>
+<h3 id="2-5-包的分类"><a href="#2-5-包的分类" class="headerlink" title="2.5 包的分类"></a>2.5 包的分类</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs txt">npm 的包从作用域上可以分为： <br>   1. 项目包： 被安装到项目的 node_modules 目录中的包，只能在当前项目下进行使用<br>     - [核心依赖包] 线上环境用到的依赖包： npm i 包名称<br>     - [开发依赖包] 开发测试环境用到的依赖包：npm i -D 包名称<br><br>   2. 全局包： 被下载到 node 安装位置 node_modules 目录下的包，可以在全局范围(任意目录)内使用<br>     安装命令： npm i -g 包名称<br>     卸载命令： npm uninstall -g 包名称<br><br>   注意: 具有全局工具性的包才有全局安装的必要性, 可以参考 npm 官网中对包的说明<br>   3. i5ting_toc   使用一个把 markdown 格式的文档转成 html 格式文件的工具包<br>   安装命令：npm i -g i5ting_toc   是全局包<br>   使用命令：i5ting_toc -f 要转换的md文件 -o<br></code></pre></td></tr></table></figure>
+<h3 id="2-6-包的规范"><a href="#2-6-包的规范" class="headerlink" title="2.6 包的规范"></a>2.6 包的规范</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs txt">一个包规范的组成结构： <br>    1. 必须以单独的目录存在<br>    2. 包的根目录下必须包含 package.json 配置文件<br>    3. package.json 这个配置文件必须包含 name, version, main 三个属性, 分别代表包的名称，版本和包的入口<br>    description: 说明<br>    keywords: 搜索的关键字<br>    author: 作者<br>    license: 协议  用MIT就行了<br>    <br>    注意：<br>      main 配置包的主入口文件，我们在使用 require(&#x27;foo&#x27;) 引入一个包时，<br>      返回的是 foo 这个包主入口文件导出的对象<br></code></pre></td></tr></table></figure>
+<h2 id="三、开发自己的包-★★★"><a href="#三、开发自己的包-★★★" class="headerlink" title="三、开发自己的包 ★★★"></a>三、开发自己的包 ★★★</h2><h3 id="3-1-初始化包的基本结构"><a href="#3-1-初始化包的基本结构" class="headerlink" title="3.1 初始化包的基本结构"></a>3.1 初始化包的基本结构</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs txt">1. 新建XXX文件夹 作为包的根目录<br>2. 在XXX文件夹内 新建如下三个文件：<br> (1)package.json （包管理配置文件）<br> (2)index.js （包的入口文件）<br> (3)README.md （包的说明文档）<br>3. 使用命令 npm init -y  初始化package.json文件<br></code></pre></td></tr></table></figure>
+<h3 id="3-2-在-index-js-中定义格式化时间的方法"><a href="#3-2-在-index-js-中定义格式化时间的方法" class="headerlink" title="3.2 在 index.js 中定义格式化时间的方法"></a>3.2 在 index.js 中定义格式化时间的方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//1. 定义格式化事件的函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dateFormat</span>(<span class="hljs-params">date</span>) </span>&#123;<br>    <span class="hljs-keyword">const</span> time = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(date);<br>    <span class="hljs-comment">//    获取年月日时分秒</span><br>    <span class="hljs-keyword">const</span> Y = addZero(time.getFullYear());<br>    <span class="hljs-keyword">const</span> M = addZero(time.getMonth() + <span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">const</span> D = addZero(time.getDate());<br>    <span class="hljs-keyword">const</span> hh = addZero(time.getHours());<br>    <span class="hljs-keyword">const</span> mm = addZero(time.getMinutes());<br>    <span class="hljs-keyword">const</span> ss = addZero(time.getSeconds());<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">`<span class="hljs-subst">$&#123;Y&#125;</span>-<span class="hljs-subst">$&#123;M&#125;</span>-<span class="hljs-subst">$&#123;D&#125;</span> <span class="hljs-subst">$&#123;hh&#125;</span>:<span class="hljs-subst">$&#123;mm&#125;</span>:<span class="hljs-subst">$&#123;ss&#125;</span>`</span><br>&#125;;<br><span class="hljs-comment">// 定义一个补零的函数</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addZero</span>(<span class="hljs-params">value</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> value &lt; <span class="hljs-number">0</span> ? <span class="hljs-string">&#x27;0&#x27;</span> + value : value<br>&#125;;<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>    dateFormat<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="3-3-在-index-js-中定义转义-HTML-和还原的方法"><a href="#3-3-在-index-js-中定义转义-HTML-和还原的方法" class="headerlink" title="3.3 在 index.js 中定义转义 HTML 和还原的方法"></a>3.3 在 index.js 中定义转义 HTML 和还原的方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 2.把html标签进行转义成实体字符串</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">escapeHTML</span>(<span class="hljs-params">str</span>) </span>&#123;<br>    <span class="hljs-comment">// replace(str,str2) 默认情况下一次只能替换一个</span><br>    <span class="hljs-comment">//replace(/正则/g,str) 全局替换符合正则的字符串  第二个参数str可以是函数</span><br>    <span class="hljs-keyword">return</span> str.replace(<span class="hljs-regexp">/&lt;|&gt;|&quot;|&amp;/g</span>, <span class="hljs-function">(<span class="hljs-params">match</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">switch</span> (match) &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&lt;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&amp;lt;&#x27;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&gt;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&amp;gt;&#x27;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&quot;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&amp;quot;&#x27;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&amp;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&amp;amp;&#x27;</span><br>        &#125;<br>    &#125;)<br><br>&#125;;<br><br><span class="hljs-comment">// 3. 把转义后的实体字符串还原成html标签</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">unEscapeHTML</span>(<span class="hljs-params">str</span>) </span>&#123;<br>    <span class="hljs-keyword">return</span> str.replace(<span class="hljs-regexp">/&amp;lt;|&amp;gt;|&amp;quot;|&amp;amp;/g</span>, <span class="hljs-function">(<span class="hljs-params">match</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">switch</span> (match) &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&amp;lt;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&lt;&#x27;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&amp;gt;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&gt;&#x27;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&amp;quot;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&quot;&#x27;</span><br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;&amp;amp;&#x27;</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&amp;&#x27;</span><br>        &#125;<br>    &#125;)<br>&#125;;<br><br><span class="hljs-built_in">module</span>.exports = &#123;<br>    escapeHTML,<br>    unEscapeHTML<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="3-4-将不同的功能进行模块化拆分"><a href="#3-4-将不同的功能进行模块化拆分" class="headerlink" title="3.4 将不同的功能进行模块化拆分"></a>3.4 将不同的功能进行模块化拆分</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">① 将格式化时间的功能，拆分到 src -&gt; dateFormat.js 中<br>② 将处理 HTML 字符串的功能，拆分到 src -&gt; htmlEscape.js 中<br>③ 在 index.js 中，导入两个模块，得到需要向外共享的方法<br>④ 在 index.js 中，使用 module.exports 把对应的方法共享出去<br></code></pre></td></tr></table></figure>
+<p>拆分后的index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> dateFormat = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./src/dateFormat&#x27;</span>);<br><span class="hljs-keyword">const</span> escapeHTML = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./src/escapeHTML&#x27;</span>);<br><span class="hljs-comment">// 把格式化事件的函数暴露出去</span><br><span class="hljs-comment">// 拓展运算符（...）用于取出参数对象或数组 所有可遍历属性然后拷贝到当前对象或数组。</span><br><span class="hljs-built_in">module</span>.exports = &#123;<br>    ...dateFormat,<br>    ...escapeHTML<br>&#125;;<br></code></pre></td></tr></table></figure>
+<h3 id="3-5-编写包的说明文档-README-md"><a href="#3-5-编写包的说明文档-README-md" class="headerlink" title="3.5 编写包的说明文档 README.md"></a>3.5 编写包的说明文档 README.md</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs txt">大致分为四个部分 1.安装 2.引入 3.使用 4.协议 一般注明MIT就行<br>使用里根据功能 这里再分为三个部分(1)格式化时间 (2)转义 HTML 中的特殊字符 (3)还原 HTML 中的特殊字符<br></code></pre></td></tr></table></figure>
+<h3 id="3-6-发布包"><a href="#3-6-发布包" class="headerlink" title="3.6 发布包"></a>3.6 发布包</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">1. 注册npm账号<br>2. 在终端中执行 npm login 命令，依次输入用户名、密码、邮箱后，进行登录。<br>3. 在包的发布目录下面执行命令`npm publish`发布到npm上   注意一定要是发布目录下面  <br>4. 运行 npm unpublish 包名 --force 命令，即可从 npm 删除已发布的包。<br></code></pre></td></tr></table></figure>
+<h2 id="四、模块的加载机制-★★★"><a href="#四、模块的加载机制-★★★" class="headerlink" title="四、模块的加载机制  ★★★"></a>四、模块的加载机制  ★★★</h2><h3 id="4-1-模块的缓存机制"><a href="#4-1-模块的缓存机制" class="headerlink" title="4.1 模块的缓存机制"></a>4.1 模块的缓存机制</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、模块优先从缓存中进行加载 <br>     模块在第一次加载后会被缓存, 如果每次调用 require(&#x27;foo&#x27;) 都解析到同一文件，则返回相同的对象,<br>   不会导致模块的代码被执行多次<br><br>二、缓存的作用<br>     不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的<br>   加载效率<br><br>   说明：文档地址（http://nodejs.cn/api/modules.html#modules_caching） <br></code></pre></td></tr></table></figure>
+<h3 id="4-2-内置模块的加载机制"><a href="#4-2-内置模块的加载机制" class="headerlink" title="4.2 内置模块的加载机制"></a>4.2 内置模块的加载机制</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、核心模块的加载机制 <br>     require() 总是会优先加载核心模块, 比如 require(&#x27;http&#x27;) 始终返回内置的 HTTP 模块，即使有同名文件<br>     如果下载的第三方包是与内置模块同名的包 如http包 那么require(&#x27;http&#x27;) 始终返回内置的 HTTP 模块<br></code></pre></td></tr></table></figure>
+<h3 id="4-3-自定义模块的加载机制"><a href="#4-3-自定义模块的加载机制" class="headerlink" title="4.3 自定义模块的加载机制"></a>4.3 自定义模块的加载机制</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、自定义模块的加载机制 <br>      使用 require() 方法去加载自定义模块，必须指定 &#x27;/&#x27;、 &#x27;./&#x27; 或 &#x27;../&#x27; 开头的路径，如果没有这个<br>    路径标识，node 会默认把它当作是一个核心模块或来自 node_modules 目录下的第三方模块<br><br><br>二、自定义文件模块<br>      如果按确切的文件名没有找到模块，则 Node.js 会尝试带上 .js、 .json 或 .node 拓展名再加载<br><br>三、自定义目录模块<br>      当传递一个目录标识符给 require () 方法时, 加载的顺序如下:<br>      <br>      1. 在加载的目录下查找 package.json 的文件, 并寻找 main 属性作为 require 的入口<br>      2. 上述找不到,  Node.js 将会试图加载目录下的 index.js 或 index.node 文件<br></code></pre></td></tr></table></figure>
+<h3 id="4-4-第三方模块的加载机制"><a href="#4-4-第三方模块的加载机制" class="headerlink" title="4.4 第三方模块的加载机制"></a>4.4 第三方模块的加载机制</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、第三方模块的加载机制 <br>     如果传递给 require() 的模块标识符不是一个核心模块，也没有以 &#x27;/&#x27; 、 &#x27;../&#x27; 或 &#x27;./&#x27; 开头，<br>   那么 Node.js 会从当前模块的父目录开始，尝试从它的 /node_modules 目录里加载模块。如果还是没有找到，<br>   则移动到再上一层父目录，直到文件系统的根目录。<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Node-js/">Node.js</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC01%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Node.js第一天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC02%E5%A4%A9/">
+                        <span class="hidden-mobile">Node.js第二天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

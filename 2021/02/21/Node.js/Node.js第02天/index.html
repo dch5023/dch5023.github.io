@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>Node.js第二天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Node.js第二天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-21 00:00" pubdate>
+        2021年2月21日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      43
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Node.js第二天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Node-js第二天"><a href="#Node-js第二天" class="headerlink" title="Node.js第二天"></a>Node.js第二天</h1><h2 id="一、http模块"><a href="#一、http模块" class="headerlink" title="一、http模块"></a>一、http模块</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs txt">服务器和客户端的概念回顾 <br>客户端负责向服务器发送请求, 获取数据并进行使用; <br>服务器负责接收来自客户端的网络请求, 处理数据并进行返回<br></code></pre></td></tr></table></figure>
+<p><strong>http 模块</strong>是 Node.js 官方提供的、用来创建 web 服务器的模块。通过 http 模块提供的 **http.createServer() **方法，就 能方便的把一台普通的电脑，变成一台 Web 服务器，从而对外提供 Web 资源服务。</p>
+<h3 id="1-1-服务器相关概念"><a href="#1-1-服务器相关概念" class="headerlink" title="1.1 服务器相关概念"></a>1.1 服务器相关概念</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、IP 地址 <br>      用来标识互联网上一台计算机的唯一地址编号, 只有访问正确的 IP 地址才能和计算机进行数据通信<br><br>    二、IP 地址格式<br>      采用 “点分十进制” 表示成 A.B.C.D 的形式, 就是用4个从0~255的数字，来表示一个IP地址, 比如：<br>    我们在终端输入 `ipconfig` 可以查看本机的 IPv4 地址格式<br><br>    三、了解 ping 命令<br>      在终端执行 `ping 域名`, 可以获取当前域名的 IP 地址并测试出网络连接情况<br></code></pre></td></tr></table></figure>
+<h3 id="1-2-域名和域名服务器"><a href="#1-2-域名和域名服务器" class="headerlink" title="1.2 域名和域名服务器"></a>1.2 域名和域名服务器</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、域名 和 IP地址 <br>     域名和 IP 地址是一一对应的关系, 它是 IP 地址字符型的表达, 这种映射关系被存放在一台 DNS 服务器上<br><br>   二、DNS（Domain Name System）<br>     专门用来管理互联网上域名和 IP 对应关系的公网服务器<br><br>   三、本地计算机的 IP 和 域名<br>     开发测试时, 本地计算机 IP 一般是 127.0.0.1, 对应的域名是 localhost, 没有使用区别<br></code></pre></td></tr></table></figure>
+<h3 id="1-3-端口"><a href="#1-3-端口" class="headerlink" title="1.3 端口"></a>1.3 端口</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、端口的概念 <br>      IP 地址可以用来标识唯一的计算机地址, 但是计算机上运行的不同服务无法仅用 IP 来标识, 于是使用了<br>    IP + 端口号的方式来区分不同的服务, 每个服务都对应着一个唯一的端口号<br><br>    二、端口的作用<br>     客户端发送的请求, 通过指定的端口号, 可以把请求交给对应的服务来进行处理<br>    <br>    注意： <br>      ULR 中的端口号如果是 80, 一般可以省略<br></code></pre></td></tr></table></figure>
+<h2 id="二、创建服务器的步骤"><a href="#二、创建服务器的步骤" class="headerlink" title="二、创建服务器的步骤"></a>二、创建服务器的步骤</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">简写为三步： 1. 引入http模块  2.调用方法.createServer 创建服务实例 3.listen()监听端口，开启服务<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1.引入http模块</span><br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-comment">// 2.调用方法.createServer 创建服务实例</span><br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>)=&gt;</span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;有人请求了本次服务&#x27;</span>);<br>&#125;);<br><span class="hljs-comment">// 3. .listen()监听端口，开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;服务开启成功，请访问：http://localhost:3006&#x27;</span>);<br>&#125;);<br><span class="hljs-comment">// 执行成功后，光标一直在最后一行闪烁，表示当前服务器一直在开启状态</span><br><span class="hljs-comment">// 手动关闭服务器，可以使用 Ctrl+c</span><br><span class="hljs-comment">// 只要有人访问了本次服务，就会触发回调函数</span><br></code></pre></td></tr></table></figure>
+<h2 id="三、请求对象和响应对象"><a href="#三、请求对象和响应对象" class="headerlink" title="三、请求对象和响应对象"></a>三、请求对象和响应对象</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs txt">Node 服务器接收到了客户端的请求, 就会调用给服务器绑定的 request 请求事件处理函数, 函数的第一个参数<br> 是 Node 封装好的请求对象, 第二个参数是响应对象 <br><br>   一、requset 请求对象<br>     提供了获取客户端相关的请求属性, 比如: <br>     - req.url 请求的路径<br>     - req.method 请求的方法<br>     <br>   二、response 响应对象<br>     提供了服务器响应数据相关的方法, 比如：<br>     - res.setHeader() 设置响应头<br>     - res.end() 响应数据内容<br></code></pre></td></tr></table></figure>
+<h3 id="3-1-请求对象req"><a href="#3-1-请求对象req" class="headerlink" title="3.1 请求对象req"></a>3.1 请求对象req</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 引入模块</span><br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-comment">// 创建服务实例</span><br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// req 表示客户端相关的属性和数据 一般用来获取请求信息</span><br>    <span class="hljs-comment">// 注意:这里的url地址不包括域名和端口的部分</span><br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`当前请求路径是<span class="hljs-subst">$&#123;req.url&#125;</span>,请求的方式是<span class="hljs-subst">$&#123;req.method&#125;</span>`</span>);<br>&#125;);<br><span class="hljs-comment">// 监听端口开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启服务成功，请访问：http://localhost:3006&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="3-2-相应对象res"><a href="#3-2-相应对象res" class="headerlink" title="3.2 相应对象res"></a>3.2 相应对象res</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 定义计数器</span><br><span class="hljs-keyword">let</span> num = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><br><span class="hljs-comment">// 2.创建服务实例</span><br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// res提供了服务端响应数据的方法</span><br>    <span class="hljs-comment">// 1.响应数据给客户端 2.直接终止当前请求</span><br>    <span class="hljs-comment">// res.end(&#x27;hello&#x27;)</span><br>    <span class="hljs-comment">// res.end()不会阻止后续代码运行，但是请求已经终止了</span><br>    <span class="hljs-comment">// console.log(123);</span><br>    <span class="hljs-comment">// 每次刷新会打印两个123 因为浏览器默认会多一个小图标的请求 不用管它</span><br><br>    <span class="hljs-comment">//过滤图标请求 这样每次就只会打印一个123了</span><br>    <span class="hljs-keyword">if</span> (req.url != <span class="hljs-string">&#x27;/favicon.ico&#x27;</span>) &#123;<br>        <span class="hljs-comment">// 更新计数变量</span><br>        num++<br>        <span class="hljs-comment">// 设置一个响应头，指定文件类型和编码方式 </span><br>        <span class="hljs-comment">// text/plain普通文本 text/html超文本 image/png图片 text/script脚本</span><br>        res.setHeader(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-string">&#x27;text/html;charset=utf-8&#x27;</span>)<br>        res.end(<span class="hljs-string">`&lt;h1&gt;hello,你是第<span class="hljs-subst">$&#123;num&#125;</span>访问者&lt;/h1&gt;`</span>);<br>        <span class="hljs-built_in">console</span>.log(<span class="hljs-number">123</span>);<br>    &#125;<br><br>&#125;);<br><span class="hljs-comment">// 3.监听端口，开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启服务成功，地址：http://localhost:3006&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h2 id="四、综合实例：根据不同的url响应不同的html内容"><a href="#四、综合实例：根据不同的url响应不同的html内容" class="headerlink" title="四、综合实例：根据不同的url响应不同的html内容"></a>四、综合实例：根据不同的url响应不同的html内容</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/* </span><br><span class="hljs-comment">  需求: 根据不同的 url, 返回不同的页面</span><br><span class="hljs-comment">  http: //localhost:3006/index ==&gt; 首页</span><br><span class="hljs-comment">  http: //localhost:3006/user ==&gt; 个人中心</span><br><span class="hljs-comment">  http: //localhost:3006/about ==&gt; 关于页面</span><br><span class="hljs-comment">  其他访问路径, 显示 404 找不到</span><br><span class="hljs-comment">*/</span><br><span class="hljs-comment">// 1.引入模块</span><br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-keyword">const</span> &#123; Server &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;https&#x27;</span>);<br><span class="hljs-comment">// 2.创建服务实例</span><br><span class="hljs-keyword">const</span> serve = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// console.log(req.url);</span><br>    <span class="hljs-comment">// 定义响应的内容文本</span><br>    <span class="hljs-keyword">let</span> content;<br><br>    <span class="hljs-comment">// 根据req.url来判断</span><br>    <span class="hljs-keyword">switch</span> (req.url) &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/index&#x27;</span>:<br>            content = <span class="hljs-string">&#x27;&lt;h1&gt;这是主页&lt;/h1&gt;&#x27;</span><br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/user&#x27;</span>:<br>            content = <span class="hljs-string">&#x27;&lt;h1&gt;这是个人中心&lt;/h1&gt;&#x27;</span><br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/about&#x27;</span>:<br>            content = <span class="hljs-string">&#x27;&lt;h1&gt;这是关于页面&lt;/h1&gt;&#x27;</span><br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">default</span>:<br>            content = <span class="hljs-string">&#x27;&lt;h1 style=&quot;color:red&quot;&gt;404 您当前访问的页面不存在！&lt;/h1&gt;&#x27;</span><br>    &#125;;<br>    <span class="hljs-comment">// 设置响应头，指定文件的类型和编码方式</span><br>    res.setHeader(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-string">&#x27;text/html;charset=utf-8&#x27;</span>);<br><br>    <span class="hljs-comment">// 使用res.end() 把数据响应给客户端</span><br>    res.end(content)<br>&#125;);<br><span class="hljs-comment">// 3.监听端口 开启服务</span><br>serve.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启服务成功，地址：http://localhost:3006&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+<h2 id="五、综合实例：时钟web服务器"><a href="#五、综合实例：时钟web服务器" class="headerlink" title="五、综合实例：时钟web服务器"></a>五、综合实例：时钟web服务器</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1.引入模块</span><br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>);<br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)<br><br><span class="hljs-comment">// 2.创建服务实例</span><br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 获取请求路径</span><br>    <span class="hljs-keyword">const</span> url = req.url;<br>    <span class="hljs-comment">// 定义一个读取文件的路径</span><br>    <span class="hljs-keyword">let</span> fpath = <span class="hljs-string">&#x27;&#x27;</span>;<br>    <span class="hljs-built_in">console</span>.log(url);<br>    <span class="hljs-comment">// 动态设置文件路径</span><br>    <span class="hljs-comment">// 优化1： 直接访问根路径 也能跳转到首页</span><br>    <span class="hljs-comment">// 优化2：把相对路径改成绝对路径</span><br>    fpath = path.join(__dirname, <span class="hljs-string">`./clock<span class="hljs-subst">$&#123;req.url == <span class="hljs-string">&#x27;/&#x27;</span> ? <span class="hljs-string">&#x27;/index.html&#x27;</span> : req.url&#125;</span>`</span>);<br>    <span class="hljs-comment">// 读取文件再响应</span><br>    fs.readFile(fpath, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function">(<span class="hljs-params">err, data</span>) =&gt;</span> &#123;<br>        <span class="hljs-keyword">if</span> (err) <span class="hljs-keyword">return</span> res.end(<span class="hljs-string">&#x27;404 文件找不到&#x27;</span>);<br>        <span class="hljs-comment">// 把读取到的内容响应给客户端</span><br>        res.end(data);<br>    &#125;)<br>&#125;);<br><span class="hljs-comment">// 3.监听端口 开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启成功：http://localhost:3006/index.html&#x27;</span>);<br>&#125;)<br><br><br><span class="hljs-comment">// !!!!!!因为index.html文件里面引用了css和js  所以html css js都响应并不是只响应html</span><br></code></pre></td></tr></table></figure>
+<h2 id="六、重要实例：自己设置一个简单的接口"><a href="#六、重要实例：自己设置一个简单的接口" class="headerlink" title="六、重要实例：自己设置一个简单的接口"></a>六、重要实例：自己设置一个简单的接口</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1.引入http模块</span><br><span class="hljs-keyword">const</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;http&#x27;</span>);<br><span class="hljs-comment">// 2.创建服务实例</span><br><span class="hljs-keyword">const</span> server = http.createServer(<span class="hljs-function">(<span class="hljs-params">req, res</span>) =&gt;</span> &#123;<br>    <span class="hljs-keyword">const</span> arr = [<br>        &#123; <span class="hljs-attr">bookname</span>: <span class="hljs-string">&#x27;图书A&#x27;</span>, <span class="hljs-attr">author</span>: <span class="hljs-string">&#x27;小明&#x27;</span>, <span class="hljs-attr">publish</span>: <span class="hljs-string">&#x27;出版社A&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">bookname</span>: <span class="hljs-string">&#x27;图书B&#x27;</span>, <span class="hljs-attr">author</span>: <span class="hljs-string">&#x27;小红&#x27;</span>, <span class="hljs-attr">publish</span>: <span class="hljs-string">&#x27;出版社B&#x27;</span> &#125;,<br>        &#123; <span class="hljs-attr">bookname</span>: <span class="hljs-string">&#x27;图书C&#x27;</span>, <span class="hljs-attr">author</span>: <span class="hljs-string">&#x27;小王&#x27;</span>, <span class="hljs-attr">publish</span>: <span class="hljs-string">&#x27;出版社C&#x27;</span> &#125;<br>    ];<br>    <span class="hljs-comment">// 根据req.url来判断</span><br>    <span class="hljs-comment">// 设置响应头，指定文件的类型和编码方式</span><br>    res.setHeader(<span class="hljs-string">&#x27;Content-Type&#x27;</span>, <span class="hljs-string">&#x27;text/html;charset=utf-8&#x27;</span>)<br>    res.setHeader(<span class="hljs-string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="hljs-string">&#x27;*&#x27;</span>)<br>    <span class="hljs-keyword">switch</span> (req.url) &#123;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/getbook/1&#x27;</span>:<br><br>            res.end(<span class="hljs-built_in">JSON</span>.stringify(arr[<span class="hljs-number">0</span>]))<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/getbook/2&#x27;</span>:<br>            res.end(<span class="hljs-built_in">JSON</span>.stringify(arr[<span class="hljs-number">1</span>]))<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;/getbook/3&#x27;</span>:<br>            res.end(<span class="hljs-built_in">JSON</span>.stringify(arr[<span class="hljs-number">2</span>]))<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">default</span>:<br>            res.end(<span class="hljs-string">&#x27;404 没有数据！&#x27;</span>)<br>    &#125;;<br>&#125;);<br><br><span class="hljs-comment">// 3.监听端口 开启服务</span><br>server.listen(<span class="hljs-number">3006</span>, <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;开启服务成功，地址：http://localhost:3006&#x27;</span>);<br>&#125;)<br></code></pre></td></tr></table></figure>
+<p>然后自己发送请求 获取数据</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>啊啊啊<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;../jquery.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><br><span class="javascript">        $(<span class="hljs-string">&#x27;.btn&#x27;</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">            $.ajax(&#123;</span><br><span class="javascript">                url: <span class="hljs-string">&#x27;http://localhost:3006/getbook/100&#x27;</span>,</span><br><span class="javascript">                method: <span class="hljs-string">&#x27;get&#x27;</span>,</span><br><span class="javascript">                success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">                    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;发送请求&#x27;</span>);</span><br>                &#125;<br>            &#125;)<br>        &#125;)<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="七、模块化"><a href="#七、模块化" class="headerlink" title="七、模块化"></a>七、模块化</h2><h3 id="7-1-模块化概念"><a href="#7-1-模块化概念" class="headerlink" title="7.1 模块化概念"></a>7.1 模块化概念</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、什么是模块化 <br>      把一个大的功能需求拆分成若干功能项的小模块, 每个模块可组合, 分解和更换, 这就是模块化思想<br><br>    二、Node.js 中的模块化<br>      把一个大的文件拆分成多个互相依赖的小文件, 每个文件就是一个模块<br><br>    三、好处<br>      1. 提高复用性  2. 代码可维护  3. 可以按需加载<br></code></pre></td></tr></table></figure>
+<h3 id="7-2-模块化规范"><a href="#7-2-模块化规范" class="headerlink" title="7.2 模块化规范"></a>7.2 模块化规范</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、模块化规范 <br>        模块在进行拆分和组合时需要遵守的规则, 主要考虑以下两点：<br>        1. 如何把自身模块成员向外暴露<br>        2. 如何把其他模块进行引入<br><br>      二、Node.js中的模块分类<br>        1. 内置模块 （由 Node.js 官方提供的, 例如 fs, path, http 等）<br>        2. 自定义模块 （自己创建的 js 文件）<br>        3. 第三方模块 （由第三方开发的模块, 使用前需要先下载）<br><br>      三、加载模块<br>        require() 方法<br><br>      注意： <br>        加载内置模块和第三方模块，都是直接传入模块名，加载自己的模块需要传入文件路径，并省略 .js 后缀<br></code></pre></td></tr></table></figure>
+<h3 id="7-3-引用模块"><a href="#7-3-引用模块" class="headerlink" title="7.3 引用模块"></a>7.3 引用模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 1. 引入内置模块 fs path http等 require(模块名)</span><br><span class="hljs-comment">// const fs = require(&#x27;fs&#x27;);</span><br><span class="hljs-comment">// 2. 引入第三方模块 vue jquery 等  require(模块名)</span><br><span class="hljs-comment">// const jquert = require(&#x27;jquery&#x27;)</span><br><br><br><span class="hljs-comment">//3. 引入自定义模块 require(相对路径)  注意这里的相对路径的./ ../不能省略,可以省略 .js</span><br><span class="hljs-comment">// 在node里面引入模块 默认是.js的文件  即使有foo.css 也不会引入的</span><br><span class="hljs-keyword">const</span> foo = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./foo&#x27;</span>);<br><span class="hljs-built_in">console</span>.log(foo); <span class="hljs-comment">//&#123;&#125; 默认的结果是一共空对象因为没有暴露成员</span><br><span class="hljs-built_in">console</span>.log(num); <span class="hljs-comment">//is not difined 模块作用域限制我们无法访问另一个模块的成员</span><br></code></pre></td></tr></table></figure>
+<h3 id="7-4-模块作用域"><a href="#7-4-模块作用域" class="headerlink" title="7.4 模块作用域"></a>7.4 模块作用域</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、模块作用域<br>     不同模块中定义的方法和变量，只能在当前模块内访问，这种模块级别的限制叫做模块作用域<br><br>复习学过的作用域<br>     1.局部作用域(函数作用域)<br>     2.全局作用域<br>     3.块级作用域:let const<br></code></pre></td></tr></table></figure>
+<h2 id="八、module和exports"><a href="#八、module和exports" class="headerlink" title="八、module和exports"></a>八、module和exports</h2><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs txt">一、module 对象的作用<br>      在每个模块中， module 这个内置的变量表示当前模块的引用<br>    <br>    二、module.exports 对象作用<br>      把模块中的成员导出暴露给外部, 供外界进行加载和调用<br><br>    三、exports 对象<br>      exports 是 module.exports 的更简短的引用形式<br>    <br>    注意：<br>      (1) module.exports 的值就是当前模块最终导出的结果<br>      (2) 可以通过 exports 访问和修改 module.exports 上的属性, 但不能通过赋值方式进行覆盖<br><br>   总结：<br>     (1) 尽量避免为 exports 对象重新赋值,不要使用exports=&#123;...&#125; 可以使用exports.XXX=xx<br>     (2) 重新赋值一个新对象 可以使用 module.exports=&#123;...&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="8-1-module-exports的用法"><a href="#8-1-module-exports的用法" class="headerlink" title="8.1 module.exports的用法"></a>8.1 module.exports的用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// console.log(module.exports == &#123;&#125;); //false 因为复杂数据类型比较的是地址值</span><br><span class="hljs-comment">//第一种方法： 为module.exports对象添加属性</span><br><span class="hljs-comment">// 暴露成员 供外界引入</span><br><span class="hljs-comment">// module.exports.num = 123;</span><br><span class="hljs-comment">// module.exports.age = 10;</span><br><span class="hljs-comment">// module.exports.fn = function() &#123;</span><br><span class="hljs-comment">//     console.log(123);</span><br><span class="hljs-comment">// &#125;</span><br><br><span class="hljs-comment">// 第二种方法 直接给module.exports对象重新赋值 </span><br><span class="hljs-comment">// 给对象重新赋值的话 之前挂载在老的空对象上的属性和值则不算了 也就是即使上面第一种不注释掉  也不会再显示的，以下面重新赋值的新对象为准</span><br><span class="hljs-comment">// const num = 10;</span><br><span class="hljs-comment">// module.exports = &#123;</span><br><span class="hljs-comment">//     num, //当属性名和值一样的时候可以简写  完整写法是num=num</span><br><span class="hljs-comment">//     age: 20,</span><br><span class="hljs-comment">//     fn: function(params) &#123;</span><br><span class="hljs-comment">//         console.log(123);</span><br><span class="hljs-comment">//     &#125;</span><br><span class="hljs-comment">// &#125;</span><br><br><br><br><br><span class="hljs-comment">// 第三种方法 node内置了exports对象 它和module.exports指向同一个对象，是module.exports的一种简写</span><br><span class="hljs-comment">// 所以给exports对象添加属性 本质上还是给module.exports对象添加属性</span><br><span class="hljs-comment">// 一个模块最终导出的对象还是以module.exports为准 </span><br><span class="hljs-comment">// exports.num = 20;</span><br><span class="hljs-comment">// exports.age = 30;</span><br><span class="hljs-comment">// exports.fn = function(params) &#123;</span><br><span class="hljs-comment">//     console.log(456);</span><br><span class="hljs-comment">// &#125;;</span><br><br><br><br><span class="hljs-comment">// exports = &#123;</span><br><span class="hljs-comment">//         num: 20,</span><br><span class="hljs-comment">//         age: 30</span><br><span class="hljs-comment">//     &#125;</span><br><span class="hljs-comment">//！！注意 这里不适用第二个方法 为exports重新赋值。因为这里两个对象都指向0x001 给exports重新赋值的话 exports就指向0x002了 </span><br><span class="hljs-comment">// 但是module.exports还是指向0x001 所以一个模块最终导出的对象还是以module.exports为准 0x001没有值那么就为默认的&#123;&#125;</span><br><br><span class="hljs-comment">// 同理：</span><br><span class="hljs-comment">// exports.name = &#x27;小明&#x27;;</span><br><span class="hljs-comment">// module.exports = &#123;</span><br><span class="hljs-comment">//     age: 20,</span><br><span class="hljs-comment">//     num: 30</span><br><span class="hljs-comment">// &#125;;</span><br><span class="hljs-comment">// 结果3想是 &#123; age:20,num:30&#125;  因为最终还是以module.exports为准 </span><br><span class="hljs-comment">// 虽然exports.name 给0x001加了条属性  但module.exports重新赋值 指向了0x002   0x002不受0x001的影响 最终输出的还是0x002的值</span><br><br><br><span class="hljs-comment">// 同理</span><br><span class="hljs-built_in">exports</span> = &#123;<br>    num: <span class="hljs-number">20</span>,<br>    age: <span class="hljs-number">30</span>,<br>&#125;;<br><span class="hljs-built_in">module</span>.exports = <span class="hljs-built_in">exports</span>;<br><span class="hljs-built_in">exports</span>.fn = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">456</span>);<br>&#125;;<br><span class="hljs-built_in">module</span>.exports.say = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">params</span>) </span>&#123;<br>    <span class="hljs-built_in">console</span>.log(<span class="hljs-number">789</span>);<br>&#125;;<br><span class="hljs-comment">// 结果是都有 因为module.exports = exports  把exports的地址0x002给了module.exports  最终都指向0x002</span><br></code></pre></td></tr></table></figure>
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Node-js/">Node.js</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC03%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Node.js第三天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/Ajax/Ajax%E7%AC%AC03%E5%A4%A9/">
+                        <span class="hidden-mobile">Ajax第三天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,494 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.new.png">
+  <link rel="icon" type="image/png" href="/img/favicon.new.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前端菜鸟">
+  <meta name="author" content="Dch">
+  <meta name="keywords" content="前端">
+  <title>JS 高级第一天 - dch5023</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"dch5023.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Dch5023</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.webp') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JS 高级第一天">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-09 00:00" pubdate>
+        2021年2月9日 凌晨
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JS 高级第一天</h1>
+            
+            <div class="markdown-body">
+              <h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>##一、面向对象与面向过程</p>
+<h3 id="1-面向对象"><a href="#1-面向对象" class="headerlink" title="1.面向对象"></a>1.面向对象</h3><ul>
+<li>面向对象是把事务分解成为一个个对象，然后由对象之间分工与合作。</li>
+<li>易于维护、拓展，耦合性低；适用场景：多人合作的复杂项目</li>
+</ul>
+<h3 id="2-面向过程"><a href="#2-面向过程" class="headerlink" title="2.面向过程"></a>2.面向过程</h3><ul>
+<li>面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现， 使用的时候再一个一个的依次调用就可以了。</li>
+<li>不易于维护、拓展，耦合性高；适用场景：简单的功能模块</li>
+</ul>
+<h2 id="二、面向对象的三个特性"><a href="#二、面向对象的三个特性" class="headerlink" title="二、面向对象的三个特性"></a>二、面向对象的三个特性</h2><h3 id="1-封装性"><a href="#1-封装性" class="headerlink" title="1.封装性"></a>1.封装性</h3><p>把公共的特征提取出来，封装在一个模板中</p>
+<h3 id="2-继承性："><a href="#2-继承性：" class="headerlink" title="2.继承性："></a>2.继承性：</h3><p>类进行实例化，得到的具体的对象</p>
+<h3 id="3-多态性："><a href="#3-多态性：" class="headerlink" title="3.多态性："></a>3.多态性：</h3><p>生成多个对象</p>
+<h2 id="三、对象与类"><a href="#三、对象与类" class="headerlink" title="三、对象与类"></a>三、对象与类</h2><h3 id="1-什么是对象"><a href="#1-什么是对象" class="headerlink" title="1.什么是对象"></a>1.什么是对象</h3><p>对象是由属性和方法组成的：是一个无序键值对的集合,指的是一个具体的事物</p>
+<ul>
+<li>属性：事物的特征，在对象中用属性来表示（常用名词）</li>
+<li>方法：事物的行为，在对象中用方法来表示（常用动词）</li>
+</ul>
+<h3 id="2-什么是类-class"><a href="#2-什么是类-class" class="headerlink" title="2.什么是类 class"></a>2.什么是类 class</h3><p>在 ES6 中新增加了类的概念，可以使用 class 关键字声明一个类，之后以这个类来实 例化对象。</p>
+<h3 id="3-如何定义一个类"><a href="#3-如何定义一个类" class="headerlink" title="3.如何定义一个类"></a>3.如何定义一个类</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> 类名 </span>&#123;<br>        <span class="hljs-comment">// 构造函数: 定义公共的属性</span><br>        <span class="hljs-title">constructor</span> (<span class="hljs-params">参数</span>) &#123; <br>          <span class="hljs-built_in">this</span>.属性名 = 属性值<br>        &#125;<br><br>        <span class="hljs-comment">// 类方法: 定义公共的行为</span><br>        方法名<span class="hljs-number">1</span> (参数) &#123;  &#125;<br>        方法名<span class="hljs-number">2</span> (参数) &#123;  &#125;<br>      &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 1.创建 人 类</span><br>        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">People</span> </span>&#123;<br>            <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">name, age, sex, height</span>)</span> &#123;<br>                    <span class="hljs-built_in">this</span>.name = name;<br>                    <span class="hljs-built_in">this</span>.age = age;<br>                    <span class="hljs-built_in">this</span>.sex = sex;<br>                    <span class="hljs-built_in">this</span>.height = height<br>                &#125;<br> <span class="hljs-comment">// 定义类上的公共方法，多个类方法之间不允许加,号</span><br>            <span class="hljs-function"><span class="hljs-title">buy</span>(<span class="hljs-params">book</span>)</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.name + <span class="hljs-string">&#x27;买了一本&#x27;</span> + book);<br>            &#125;<br>        &#125;;<br>        <span class="hljs-comment">// 2.实例化people 创建对象</span><br>        <span class="hljs-keyword">var</span> xm = <span class="hljs-keyword">new</span> People(<span class="hljs-string">&#x27;小明&#x27;</span>, <span class="hljs-number">15</span>, <span class="hljs-string">&#x27;男&#x27;</span>, <span class="hljs-number">175</span>);<br>        <span class="hljs-keyword">var</span> xh = <span class="hljs-keyword">new</span> People(<span class="hljs-string">&#x27;小红&#x27;</span>, <span class="hljs-number">18</span>, <span class="hljs-string">&#x27;女&#x27;</span>, <span class="hljs-number">165</span>);<br>        xm.buy(<span class="hljs-string">&#x27;红楼梦&#x27;</span>);<br>        xh.buy(<span class="hljs-string">&#x27;水浒传&#x27;</span>);<br>        <span class="hljs-built_in">console</span>.log(xm, xh);<br></code></pre></td></tr></table></figure>
+<h3 id="4-注意要点"><a href="#4-注意要点" class="headerlink" title="4.注意要点"></a>4.注意要点</h3><ul>
+<li> class 创建的类首字母还是要大写</li>
+<li>类中的 constructor 构造函数, 接收 new 创建对象传递的参数，并返回实例对象（return this）</li>
+<li> new 一个类时，自动调用构造函数方法，但不会自动调用类方法</li>
+<li> 类中的构造函数 和 类方法不需要加 function （重点）</li>
+<li>多个类方法之间不需要使用逗号隔开 (重点)</li>
+</ul>
+<h3 id="5-类的继承-extends"><a href="#5-类的继承-extends" class="headerlink" title="5.类的继承  extends"></a>5.类的继承  extends</h3><ul>
+<li>定义一个类（子类）通过 extends 继承父类上的方法和属性</li>
+<li>写法：class 子类名 extends 父类 {}</li>
+<li>super 关键字可以访问和调用父类上的函数，包括构造函数和类方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//定义了父类</span><br>        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Father</span> </span>&#123;<br>            <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">x, y</span>)</span> &#123;<br>                <span class="hljs-built_in">this</span>.x = x;<br>                <span class="hljs-built_in">this</span>.y = y;<br>            &#125;<br>            <span class="hljs-function"><span class="hljs-title">sum</span>(<span class="hljs-params"></span>)</span> &#123;<br>                <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">this</span>.x + <span class="hljs-built_in">this</span>.y);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//子元素通过extends继承父类</span><br>        <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Father</span> </span>&#123;<br>            <span class="hljs-function"><span class="hljs-title">constructor</span>(<span class="hljs-params">x, y</span>)</span> &#123;<br>                <span class="hljs-built_in">super</span>(x, y); <span class="hljs-comment">//使用super调用了父类中的构造函数</span><br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">var</span> son = <span class="hljs-keyword">new</span> Son(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>);<br><span class="hljs-comment">//调用了父类的方法  如果子父存在同名的方法，就近使用子类的</span><br>        son.sum(); <span class="hljs-comment">//结果为3</span><br></code></pre></td></tr></table></figure>
+<h5 id="5-1-类的继承注意点"><a href="#5-1-类的继承注意点" class="headerlink" title="5.1 类的继承注意点"></a>5.1 类的继承注意点</h5><ul>
+<li>子类调用方法时的查找顺序：先从子类上找再从父类上找</li>
+<li>super 作为一个函数，可以调用父类的构造函数；作为一个对象，可以调用父类的方法</li>
+<li>子类中使用 this 之前，必须要先调用 super</li>
+<li>子类可以拓展自己的属性和方法</li>
+</ul>
+<h3 id="6-补充的注意点和this指向"><a href="#6-补充的注意点和this指向" class="headerlink" title="6.补充的注意点和this指向"></a>6.补充的注意点和this指向</h3><ul>
+<li>在 ES6 中类没有变量提升，所以必须先定义类，才能通过类实例化对象</li>
+<li>在类中访问属性和方法，必须加 this</li>
+<li>时刻注意this的指向问题,类里面的共有的属性和方法一定要加this使用.<ul>
+<li>constructor中的this指向的是new出来的实例对象</li>
+<li>自定义的方法,一般也指向的new出来的实例对象</li>
+<li>绑定事件之后this指向的就是触发事件的事件源</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/02/09/JS%E9%AB%98%E7%BA%A7/JS%E9%AB%98%E7%BA%A7%E7%AC%AC01%E5%A4%A9/Users\ytt5023\Desktop\笔记\JS高级\第1天\imgs\Snipaste_2021-01-04_10-30-58.png" srcset="/img/loading.gif" alt="Snipaste_2021-01-04_10-30-58"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JS%E9%AB%98%E7%BA%A7/">JS高级</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/blog/">blog</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/09/Ajax/Ajax%E7%AC%AC05%E5%A4%A9/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Ajax第五天</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/09/JS%E9%AB%98%E7%BA%A7/JS%E9%AB%98%E7%BA%A7%E7%AC%AC02%E5%A4%A9/">
+                        <span class="hidden-mobile">JS 高级第二天</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
