@@ -579,16 +579,24 @@ MDN 详细 API : https://developer.mozilla.org
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC07%E5%A4%A9/">Web API第七天</a>
+        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC06%E5%A4%A9/">Web API第六天</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC07%E5%A4%A9/">
+        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC06%E5%A4%A9/">
           
           
             
           
-          day07 - Web APIs1.1. 触屏事件1.1.1 触屏事件概述移动端浏览器兼容性较好，我们不需要考虑以前 JS 的兼容性问题，可以放心的使用原生 JS 书写效果，但是移动端也有自己独特的地方。比如触屏事件 touch（也称触摸事件），Android 和 IOS 都有。touch 对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。触屏事件可响应用户手指（或触控笔）对屏幕或者触
+          day06 - Web APIs**1.1. **动画函数封装1.1.1 缓动效果原理缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来
+思路：
+
+让盒子每次移动的距离慢慢变小，速度就会慢慢落下来。
+核心算法： (目标值 - 现在的位置)   /  10    做为每次移动的距离步长
+停止的条件是： 让当前盒子位置等于目标位置就停止定时器  
+注意步长值需要取整  
+
+1.1.2 动画
         </a>
       </p>
 
@@ -627,24 +635,16 @@ MDN 详细 API : https://developer.mozilla.org
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC06%E5%A4%A9/">Web API第六天</a>
+        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC07%E5%A4%A9/">Web API第七天</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC06%E5%A4%A9/">
+        <a href="/2021/02/09/Web%20API/Web%20API%E7%AC%AC07%E5%A4%A9/">
           
           
             
           
-          day06 - Web APIs**1.1. **动画函数封装1.1.1 缓动效果原理缓动动画就是让元素运动速度有所变化，最常见的是让速度慢慢停下来
-思路：
-
-让盒子每次移动的距离慢慢变小，速度就会慢慢落下来。
-核心算法： (目标值 - 现在的位置)   /  10    做为每次移动的距离步长
-停止的条件是： 让当前盒子位置等于目标位置就停止定时器  
-注意步长值需要取整  
-
-1.1.2 动画
+          day07 - Web APIs1.1. 触屏事件1.1.1 触屏事件概述移动端浏览器兼容性较好，我们不需要考虑以前 JS 的兼容性问题，可以放心的使用原生 JS 书写效果，但是移动端也有自己独特的地方。比如触屏事件 touch（也称触摸事件），Android 和 IOS 都有。touch 对象代表一个触摸点。触摸点可能是一根手指，也可能是一根触摸笔。触屏事件可响应用户手指（或触控笔）对屏幕或者触
         </a>
       </p>
 
