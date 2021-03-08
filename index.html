@@ -181,6 +181,72 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2021/03/08/Vue/Vue%E7%AC%AC%E4%B8%80%E5%A4%A9/">Vue第一天</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/08/Vue/Vue%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+          
+          
+            
+          
+          Vue 第一天一、vue 介绍1.认识 vue
+特点：易用、灵活、高效
+版本号：2.6
+作者：尤雨溪
+兼容：IE8 及以下不兼容
+
+2.vue 的基本使用
+引入 vue.js
+
+开发版本(development)：警告、提示、没有压缩代码
+生产版本(production)：部署上线时用的，删除了警告、提示，压缩了代码
+
+
+创建挂载节点标签
+
+注意：不能是 body 和 html 标签
+
+
+实例化 
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-08 00:00" pubdate>
+              2021-03-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Vue/">Vue</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/blog/">blog</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2021/02/26/Node.js/Node.js%E7%AC%AC05%E5%A4%A9/">Node.js第五天</a>
       </h1>
 
@@ -381,41 +447,16 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/21/Node.js/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">Node.js部分npm命令</a>
+        <a href="/2021/02/21/Node.js/Node.js%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">Node.js的模块加载机制</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/21/Node.js/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">
+        <a href="/2021/02/21/Node.js/Node.js%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
           
           
             
           
-          Node.js 部分npm命令部分基础命令
-
-
-code ~/.npmrc
-配置文档  在里面加 loglevel=http 能看到下载的信息
-
-
-
-npm i或install 完整的包名称
-下载包(核心依赖包)
-
-
-npm i 包1 包2 包3
-一次性下载多个包
-
-
-npm view 包名
-查看包
-
-
-npm i
-一次性安装所有的依赖包
-
-
-npm uninstall 包名
-卸载包 （没有简写）
+          Node.js的模块加载机制1. 模块的缓存机制1234567一、模块优先从缓存中进行加载      模块在第一次加载后会被缓存, 如果每次调用 require(&#x27;foo&#x27;) 都解析到同一文件，则返回相同的对象,   不会导致模块的代码被执行多次二、缓存的作用     不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的   加
         </a>
       </p>
 
@@ -454,16 +495,41 @@ npm uninstall 包名
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/21/Node.js/Node.js%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">Node.js的模块加载机制</a>
+        <a href="/2021/02/21/Node.js/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">Node.js部分npm命令</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/21/Node.js/Node.js%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6/">
+        <a href="/2021/02/21/Node.js/Node.js%20%E9%83%A8%E5%88%86npm%E5%91%BD%E4%BB%A4/">
           
           
             
           
-          Node.js的模块加载机制1. 模块的缓存机制1234567一、模块优先从缓存中进行加载      模块在第一次加载后会被缓存, 如果每次调用 require(&#x27;foo&#x27;) 都解析到同一文件，则返回相同的对象,   不会导致模块的代码被执行多次二、缓存的作用     不论是 node.js 内置的核心模块，用户自定义的模块还是第三方模块，都有对应的缓存策略，提升模块的   加
+          Node.js 部分npm命令部分基础命令
+
+
+code ~/.npmrc
+配置文档  在里面加 loglevel=http 能看到下载的信息
+
+
+
+npm i或install 完整的包名称
+下载包(核心依赖包)
+
+
+npm i 包1 包2 包3
+一次性下载多个包
+
+
+npm view 包名
+查看包
+
+
+npm i
+一次性安装所有的依赖包
+
+
+npm uninstall 包名
+卸载包 （没有简写）
         </a>
       </p>
 
@@ -552,54 +618,6 @@ Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC03%E5%A4%A9/">Node.js第三天</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC03%E5%A4%A9/">
-          
-          
-            
-          
-          Node.js第三天一、包1234567891011121314一、什么叫做包 (package)？       带有一个 package.json 文件的目录称为包, 用来描述多个模块之间互相依赖的关系, 通常第三方模块都是以一个    包的形式存在, 又称为 &quot;第三方包&quot;     二、包的来源      通常我们直接使用第三方个人或团队开发出来的软件包, 进行免费下载和使用
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-21 00:00" pubdate>
-              2021-02-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Node-js/">Node.js</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/blog/">blog</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
         <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC02%E5%A4%A9/">Node.js第二天</a>
       </h1>
 
@@ -649,19 +667,16 @@ http 模块是 Node.js 官方提供的、用来创建 web 服务器的模块。�
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/02/09/Ajax/Ajax%E7%AC%AC03%E5%A4%A9/">Ajax第三天</a>
+        <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC03%E5%A4%A9/">Node.js第三天</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/02/09/Ajax/Ajax%E7%AC%AC03%E5%A4%A9/">
+        <a href="/2021/02/21/Node.js/Node.js%E7%AC%AC03%E5%A4%A9/">
           
           
             
           
-          Ajax第三天一、XMLHttpRequest的基本使用1.什么是XMLHttpRequest浏览器为我们提供的一个内置对象(构造函数), 通过它我们可以向服务器发送请求, 并接受响应
- $.ajax() 请求方法底层就是 jQuery 封装这个对象的一系列方法来实现的
-2.使用原生 XMLHttpRequest 发送GET请求的步骤  （⭐⭐⭐）(1)构建 xhr 实例对象
-(2)初始化请求 o
+          Node.js第三天一、包1234567891011121314一、什么叫做包 (package)？       带有一个 package.json 文件的目录称为包, 用来描述多个模块之间互相依赖的关系, 通常第三方模块都是以一个    包的形式存在, 又称为 &quot;第三方包&quot;     二、包的来源      通常我们直接使用第三方个人或团队开发出来的软件包, 进行免费下载和使用
         </a>
       </p>
 
@@ -669,8 +684,8 @@ http 模块是 Node.js 官方提供的、用来创建 web 服务器的模块。�
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-09 00:00" pubdate>
-              2021-02-09
+            <time datetime="2021-02-21 00:00" pubdate>
+              2021-02-21
             </time>
           </div>
         
@@ -678,7 +693,7 @@ http 模块是 Node.js 官方提供的、用来创建 web 服务器的模块。�
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
             
-              <a href="/categories/Ajax/">Ajax</a>
+              <a href="/categories/Node-js/">Node.js</a>
             
           </div>
         
